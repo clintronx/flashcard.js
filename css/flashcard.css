@@ -1,0 +1,25 @@
+
+#card {
+  float:left;
+  width:5in;
+  height:3in;
+  border: 1px solid #808080;
+  margin: 2em 1em;
+  font-size: large;
+  overflow:auto;
+}
+
+#input textarea{
+  float:left;
+  clear:left;
+  width: 5in;
+  height: 5in;
+  margin: 2em 1em;
+  overflow-y:scroll;
+}
+
+nav button {
+  width:10em;
+  margin: 2em 1em;
+}
+
