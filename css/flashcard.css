@@ -6,6 +6,7 @@
     height: 5in;
     margin: auto;
     font-size: large;
+    font-family: 'Times New Roman';
     line-height: 2em;
     opacity: 1;
 }
@@ -16,9 +17,14 @@
     left: 0;
     width: 7in;
     height: 5in;
-    margin: 0;
     padding: 1em;
+    color: grey;
+    font-family: 'Times New Roman';
+    font-size: large;
 }
+    
+    #card {
+    }
 
     textarea{
         top: 50px;
