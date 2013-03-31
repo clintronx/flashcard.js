@@ -8,6 +8,7 @@
         prevCard = document.querySelector('#prev_card'),
         library = document.querySelector('#library'),
         index = document.querySelector('#index'),
+        sideLabel = document.querySelector('#side'),
         input = JSON.parse(document.querySelector('section#input textarea').value),
         FRONT = 0,
         BACK = 1,
@@ -22,6 +23,11 @@
         current = 0;
         index.innerText = 1;
     }
+    
+    function toggleSideLabel() {
+        sideLabel.hidden = false;
+        setTimeout(function () {sideLabel.hidden = true; }, 750);
+    }
         
     function flipClickEvent() {
         var front = list[current], c = input[front], back = c.back;
@@ -30,14 +36,19 @@
         case FRONT:
             card.innerText = back;
             side = BACK;
+            sideLabel.innerText = 'back';
             break;
         case BACK:
             card.innerText = front;
             side = FRONT;
+            sideLabel.innerText = 'front';
             break;
         default:
             side = FRONT;
+            sideLabel.innerText = 'front';
         }
+        
+        toggleSideLabel();
     }
     
     function jsonClickEvent() {
@@ -65,6 +76,7 @@
     
     function nextCardEvent() {
         side = FRONT;
+        sideLabel.innerText = 'front';
         if (current >= list.length - 1) {
             current = 0;
         } else {
@@ -73,10 +85,13 @@
         
         card.innerText = list[current];
         index.innerText = current + 1;
+        
+        toggleSideLabel();
     }
     
     function prevCardEvent() {
         side = FRONT;
+        sideLabel.innerText = 'front';
         if (current <= 0) {
             current = list.length - 1;
         } else {
@@ -85,6 +100,8 @@
         
         card.innerText = list[current];
         index.innerText = current + 1;
+        
+        toggleSideLabel();
     }
     
     function removeClass(e, className) {

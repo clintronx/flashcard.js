@@ -34,12 +34,24 @@
     height: auto;
 }
 
+#side {
+    position: absolute;
+    right: 0;
+    font-size: 5em;
+    line-height: 1em;
+    text-align: center;
+    z-index: 0;
+    opacity: 0.2;
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
 #next_card, #prev_card {
     position: absolute;
     width: 30%;
     top: -50px;
     bottom: -50px;
-    z-index: 0;
+    z-index: 1;
 }
 
     #next_card {
@@ -73,7 +85,7 @@
     font-size: 5em;
     line-height: 1em;
     text-align: center;
-    z-index: 1;
+    z-index: 2;
     opacity: 0;
 }
     
