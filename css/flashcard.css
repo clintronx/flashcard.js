@@ -1,34 +1,83 @@
 
-#card {
-    float:left;
-    min-width:7in;
-    height:5in;
-    border: 52px solid gray;
-    border-right-style: outset;
-    padding: 1em;
-    margin: 2em 1em;
-    font-size: large;
-    overflow:auto;
-    line-height: 2em;
-}
-
-#input textarea{
-    float:left;
-    clear:left;
+#view, #input {
+    position: relative;
+    top: 50px;
     width: 7in;
     height: 5in;
-    padding: 1em;
-    margin: 2em 1em;
-    overflow-y:scroll;
+    margin: auto;
+    font-size: large;
+    line-height: 2em;
+    opacity: 1;
 }
 
-nav button {
-    width:15em;
-    height:2em;
-    margin: 2em 1em;
-    background: gray;
-    border: 2px white;
-    color: white;
-    text-transform:capitalize
+#card, textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7in;
+    height: 5in;
+    margin: 0;
+    padding: 1em;
 }
+
+    textarea{
+        top: 50px;
+        overflow-y: auto;
+        border: none;
+    }
+
+#index {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    height: auto;
+}
+
+#next_card, #prev_card {
+    position: absolute;
+    width: 30%;
+    top: -50px;
+    bottom: -50px;
+    z-index: 0;
+}
+
+    #next_card {
+        right: -50px;
+    }
+
+    #prev_card {
+        left: -50px;
+    }
+
+.next_background, .prev_background {
+    background-image: url('../img/gt.jpg');  
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+}
+    
+    .prev_background {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+
+#library {
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    right: -50px;
+    font-size: 5em;
+    line-height: 1em;
+    text-align: center;
+    z-index: 1;
+    opacity: 0;
+}
+    
+    #library.show {
+        opacity: 0.2;
+    }
 
