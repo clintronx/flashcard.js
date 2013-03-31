@@ -21,7 +21,7 @@
         input = JSON.parse(document.querySelector('section#input textarea').value);
         list = Object.keys(input);
         current = 0;
-        index.innerText = 1;
+        index.innerText = '1/' + list.length;
     }
     
     function toggleSideLabel() {
@@ -84,7 +84,7 @@
         }
         
         card.innerText = list[current];
-        index.innerText = current + 1;
+        index.innerText = current + 1 + '/' + list.length;
         
         toggleSideLabel();
     }
@@ -99,7 +99,7 @@
         }
         
         card.innerText = list[current];
-        index.innerText = current + 1;
+        index.innerText = current + 1 + '/' + list.length;
         
         toggleSideLabel();
     }
