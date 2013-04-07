@@ -1,4 +1,4 @@
-/*global document, console, setTimeout */
+/*global document, console, setTimeout, clearTimeout */
 /*jslint plusplus: true */
 (function () {
     'use strict';
@@ -14,7 +14,8 @@
         BACK = 1,
         list = [],
         current = 0,
-        side = FRONT;
+        side = FRONT,
+        activeID = {};
     
     function resetLibrary() {
         list = [];
@@ -76,7 +77,6 @@
     
     function nextCardEvent() {
         side = FRONT;
-        sideLabel.innerText = 'front';
         if (current >= list.length - 1) {
             current = 0;
         } else {
@@ -84,6 +84,7 @@
         }
         
         card.innerText = list[current];
+        sideLabel.innerText = 'front';
         index.innerText = current + 1 + '/' + list.length;
         
         toggleSideLabel();
@@ -91,7 +92,6 @@
     
     function prevCardEvent() {
         side = FRONT;
-        sideLabel.innerText = 'front';
         if (current <= 0) {
             current = list.length - 1;
         } else {
@@ -99,6 +99,7 @@
         }
         
         card.innerText = list[current];
+        sideLabel.innerText = 'front';
         index.innerText = current + 1 + '/' + list.length;
         
         toggleSideLabel();
@@ -111,6 +112,17 @@
     function addClass(e, className) {
         e.target.classList.add(className);
     }
+    
+    function callback(label, e, className, delay) {
+        function closure() {
+            removeClass(e, className);
+            delete activeID[label];
+        }
+        
+        addClass(e, className);
+        clearTimeout(activeID[label]);
+        activeID[label] = setTimeout(closure, delay);
+    }
      
     resetLibrary();
     card.addEventListener('click', flipClickEvent);
@@ -121,18 +133,15 @@
     document.querySelector('section#input textarea').addEventListener('blur', jsonBlurEvent);
     nextCard.addEventListener('mouseover', function (e) {
         var className = 'next_background';
-        addClass(e, className);
-        setTimeout(removeClass, 750, e, className);
+        callback('nextCard', e, className, 750);
     });
     prevCard.addEventListener('mouseover', function (e) {
         var className = 'prev_background';
-        addClass(e, className);
-        setTimeout(removeClass, 750, e, className);
+        callback('prevCard', e, className, 750);
     });
     library.addEventListener('mouseover', function (e) {
         var className = 'show';
-        addClass(e, className);
-        setTimeout(removeClass, 750, e, className);
+        callback('library', e, className, 750);
     });
    
     jsonBlurEvent();
