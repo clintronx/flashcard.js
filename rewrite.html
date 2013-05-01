@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>flashcard.js</title>
+    <link rel="stylesheet" href="css/flashcard.css" >
+</head>
+<body>
+    <div id="app"></div>
+    <script src="lib/jquery.v1.9.1.js"></script>
+    <script src="lib/json2.js"></script>
+    <script src="lib/underscore.js"></script>    
+    <script src="lib/backbone.js"></script>
+    <script src="src/card_model.js"></script>
+    <script src="src/card_view.js"></script>
+    <script type="text/javascript">
+        var card = new Card();
+        var cardView = new CardView({model: card});
+        cardView.render();
+        $('#app').append(cardView.el);
+    </script>
+</body>
+</html>

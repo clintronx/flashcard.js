@@ -105,15 +105,17 @@
         toggleSideLabel();
     }
     
-    function removeClass(e, className) {
-        e.target.classList.remove(className);
-    }
-    
-    function addClass(e, className) {
-        e.target.classList.add(className);
-    }
     
     function callback(label, e, className, delay) {
+        
+        function removeClass(e, className) {
+            e.target.classList.remove(className);
+        }
+        
+        function addClass(e, className) {
+            e.target.classList.add(className);
+        }
+        
         function closure() {
             removeClass(e, className);
             delete activeID[label];
