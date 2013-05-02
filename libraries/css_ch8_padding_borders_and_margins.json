@@ -1,0 +1,32 @@
+{
+	"width and height": {
+    	"back": "(box model)\nwidth -\ndistance from left inner edge to right iner edge\nheight -\ninner top edge to inner bottom edge\n\nnote: this properties do not apply to inline nonreplace elements"
+ 	},
+	"margin": {
+    	"back": "margin -\nseparation between most normal-flow elements occurs because of margins.\n\nh1 {margin: 0.25in; background-color: silver;}\nsets a quarter inch of blank space around an h1 element"
+ 	},
+	"margin eamples": {
+    	"back": "(margin: top right bottom left - TRBL 'trouble')\n\nh1 {margin: 10px 20px 15px 5px;}\nh1 {margin: 10px 20px;} /* equals h1 {margin: 10px 20px 10px 20px;} */"
+ 	},
+	"margins and inline elements": {
+    	"back": "applying margins to an inline nonreplaced element will have no effect on the line-height\nonly left and right margins are effected"
+ 	},
+	"border": {
+    	"back": "border -\nsimply one or more lines that surround the content and padding of an element.\nThree attributes: width, style, color."
+ 	},
+	"border-style examples": {
+    	"back": "a:link {border-style: outset;}\np.aside {border-style: solid dashed dotted solid;}\nh1 {border-style:solid; border-left-style: none;}"
+ 	},
+	"border-width examples": {
+    	"back": "p { border-width: thick; }\nh1 {border-style: dotted; border-width: thin 0;}\np {border-style: solid; border-width: 15px 2px 7px 4px;}"
+ 	},
+	"border-color": {
+    	"back": "p {border-style: solid; border-color: gray;}\n h1 {border-style: solid; border-color: black rgb(25%,25%,25%,25%) #808080 silver;}"
+ 	},
+	"shorthand border properties": {
+    	"back": "h1 {border-bottom: thick solid gray;}\nh2 {border: thick silver solid; border-left-width: 20px;}"
+ 	},
+	"padding": {
+    	"back": "h1 {padding: 10px; background-color:silver;}\nh2 {padding: 0.5em 2em;}\nh3 {padding-left: 0.25in;}"
+ 	}
+}

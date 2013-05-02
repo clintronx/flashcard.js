@@ -1,0 +1,26 @@
+{
+	"color": {
+    	"back": "p {color: green;}"
+ 	},
+	"background-color": {
+    	"back": "p {background-color: gray; padding: 10px;}"
+ 	},
+	"background-image": {
+    	"back": "body {background-image: url(teddy.png);}"
+ 	},
+	"background-repeat": {
+    	"back": "body {background-image: url(http://www.example.com/teddy.png); background-repeat: repeat-y;}"
+ 	},
+	"background positioning": {
+    	"back": "body {background-image: url(teddy.png); background-repeat: no-repeat; background-position: center;}\n\np {background-image: url(teddy.png); background-repeat: no-repeat; background-position: top right;}\np {background-image: url(teddy.png); background-repeat: no-repeat; background-position: 50% 50%;}"
+ 	},
+	"background positioning percentages": {
+    	"back": "p {background-image: url(teddy.png); background-repeat: no-repeat;}\np.c1 { background-position: 0% 0%;} /* top left */\np.c2 { background-position: 50% 50%;} /* center center */\np.c3 { background-position: 100% 100%;} /* bottom left */\np.c4 { background-position: 0% 100%;} /* bottom left */\np.c5 { background-position: 100% 0%;} /* top right */"
+ 	},
+	"background attachment": {
+    	"back": "body {background-image: url(http://www.example.com/teddy.png); background-repeat: repeat-y; background-attachment: fixed;}\n\nfixes the image in repect to the viewing area and immune to scrolling\nif background-attachment:scroll them image travels with view"
+ 	},
+	"background": {
+    	"back": "body {background: white url(teddy.png) top left repeat-y fixed;}\n/* background-color background-image background-position background-repeat background-attachment */"
+ 	}
+}

@@ -1,0 +1,35 @@
+{
+	"simple table" : {
+		"back" : "<p>Simple table</p>\n<table>\n\t<tr>\n\t\t<td>John</td>\n\t\t<td>Doe</td>\n\t</tr>\n\t<tr>\n\t\t<td>Jane</td>\n\t\t<td>Doe</td>\n\t</tr>\n</table>"
+	},
+	"Simple table with header" : {
+		"back" : "<p>Simple table with header</p>\n<table>\n\t<tr>\n\t\t<th>First name</th>\n\t\t<th>Last name</th>\n\t</tr>\n\t<tr>\n\t\t<td>John</td>\n\t\t<td>Doe</td>\n\t</tr>\n\t<tr>\n\t\t<td>Jane</td>\n\t\t<td>Doe</td>\n\t</tr>\n</table>"
+	},
+	"Table with thead, tfoot, and tbody" : {
+		"back" : "<p>Table with thead, tfoot, and tbody</p>\n<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Header content 1</th>\n\t\t\t<th>Header content 2</th>\n\t\t</tr>\n\t</thead>\n\t<tfoot>\n\t\t<tr>\n\t\t\t<td>Footer content 1</td>\n\t\t\t<td>Footer content 2</td>\n\t\t</tr>\n\t</tfoot>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>Body content 1</td>\n\t\t\t<td>Body content 2</td>\n\t\t</tr>\n\t</tbody>\n</table>"	
+	},
+	"A basic input box" : {
+		"back" : "<!-- A basic input -->\n<input type=\"text\" name=\"input\" value=\"Type here\">"
+	},
+	"password box" : {
+		"back" : "<input type=\"password\" name=\"pwd\">"
+	},
+	"radio buttons" : {
+		"back" : "<form>\n<input type=\"radio\" name=\"sex\" value=\"male\">Male<br>\n<input type=\"radio\" name=\"sex\" value=\"female\">Female\n</form>"
+	},
+	"checkboxes" : {
+		"back" : "<form>\n<input type=\"checkbox\" name=\"vehicle\" value=\"Bike\">I have a bike<br>\n<input type=\"checkbox\" name=\"vehicle\" value=\"Car\">I have a car\n</form>"
+	},
+	"simple form with submit button" : {
+		"back" : "<!-- Simple form which will send a GET request -->\n<form action=\"\">\n\t<label for=\"GET-name\">Name:</label>\n\t<input id=\"GET-name\" type=\"text\" name=\"name\">\n\t<input type=\"submit\" value=\"Save\">\n</form>\n\n<!-- Simple form which will send a POST request -->\n<form action=\"\" method=\"post\">\n\t<label for=\"POST-name\">Name:</label>\n\t<input id=\"POST-name\" type=\"text\" name=\"name\">\n\t<input type=\"submit\" value=\"Save\">\n</form>"
+	},
+	"drop-down list" : {
+		"back" : "<!-- The second value will be selected initially -->\n<select name=\"select\">\n\t<option value=\"value1\">Value 1</option>\n\t<option value=\"value2\" selected>Value 2</option>\n\t<option value=\"value3\">Value 3</option>\n</select>"
+	},
+	"input checked events" : {
+		"back" : "/* any \"checkable\" element */\n:checked {\n  width: 50px;\n  height: 50px;\n}\n\n/* only radio elements */\n  input[type=\"radio\"]:checked {\n  margin-left: 25px;\n}\n\n/* only checkbox elements */\ninput[type=\"checkbox\"]:checked {\n  display: none;\n}\n\n/* only option elements */\noption:checked {\n  color: red;\n}"	
+	},
+	"label with for attribute" : {
+		"back" : "<!-- Simple label example with for attribute -->\n<label for=\"Name\">Click me</label>\n<input type=\"text\" id=\"Name\" name=\"Name\" />\n\n<!-- or more simply -->\n<label>Click me <input type=\"text\" id=\"Name\" name=\"Name\" /></label>"	
+	}
+}

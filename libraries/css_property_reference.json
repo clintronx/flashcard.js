@@ -1,0 +1,173 @@
+{
+  "display": {
+    "back": "values:\tnone | block | inline-block | list-item |\n\trun-in | table | inline-table | table-row-group |\n\ttable-header-group | table-footer-group | table-row |\n\ttable-column-group | table-column | table-cell | table-caption | inherit\ninitial value:\tinline\napplies to:\tall elements"
+  },
+  "font-family": {
+    "back": "values:\t[[<family-name> | <generic-family>],]* [<family-name> | <generic-family] | inherit\ninitial value:\tuser agent specific\napplies to:\tall elements"
+  },
+  "font-weight": {
+    "back": "values:\tnormal | bold | bolder | lighter | 100 |...| 900 |\ninitial value:normal\t\napplies to:all elements\t"
+  },
+  "font-size": {
+    "back": "values:\txx-small | x-small | small | medium | large | x-large | xx-large | smaller | larger | <length> | <percentage> | inherit |\ninitial value:\tmedium\napplies to:\tall elements"
+  },
+  "font-style": {
+    "back": "values:\titalic | oblique | normal | inherit\ninitial value:\tnormal\napplies to:\tall elements"
+  },
+  "font-variant": {
+    "back": "values:\tsmall-caps | normal | inherit\ninitial value:\tnormal\napplies to:\tall elements"
+  },
+  "font-stretch": {
+    "back": "values:\tnormal | wider | narrower | ultra-condensed | extra-condensed | condensed | semi-condensed | expanded | extra-expanded | ultra-expanded | inherit\ninitial value:\tnormal\napplies to:\tall elements"
+  },
+  "font-size-adjust": {
+    "back": "values:\t<number> | none | inherit\ninitial value:\tnone\napplies to:\tall elements"
+  },
+  "font": {
+    "back": "values:\t[[<font-style>||<font-family>||<font-weight>]?<font-size>[/<line-height>]?<font-family>]|caption|icon|menu|message-box|small-caption|status-bar|inherit\ninitial value:\t(refer to individual properties)\napplies to:\tall elements"
+  },
+  "text-indent": {
+    "back": "values:\t<length>|<percentage>|inherit\ninitial value:\t0\napplies to:\tBlock-level elements"
+  },
+  "text-align": {
+    "back": "values:\tleft|center|right|justify|inherit\ninitial value:\tuser agent-specific\napplies to:\tBlock-level elements"
+  },
+  "line-height": {
+    "back": "values:\t<length>|<percentage>|<number>|normal|inherit\ninitial value:\tnormal\napplies to:\tall elements"
+  },
+  "vertical-align": {
+    "back": "values:\tbaseline|sub|super|top|text-top|middle|bottom|text-bottom|<percentage>|<length>|inherit\ninitial value:\tbaseline\napplies to:\tinline elements and table cells"
+  },
+  "word-spacing": {
+    "back": "values:\t<length>|normal|inherit\ninitial value:\tnormal\napplies to:\tall elements"
+  },
+  "letter-spacing": {
+    "back": "values:\t<length>|normal|inherit\ninitial value:\tnormal\napplies to:\tall elements"
+  },
+  "text-transform": {
+    "back": "values:\tuppercase|lowercase|capitalize|none|inherit\ninitial value:\tnone\napplies to:\tall elements"
+  },
+  "text-decoration": {
+    "back": "values:\tnone|[underline||overline||line-through]|inherit\ninitial value:\tnone\napplies to:\tall elements"
+  },
+  "text-shadow": {
+    "back": "values:\tnone|[<color>||<length><length><length>? ,]*[<color>||<length><length><length>?]|inherit\ninitial value:\tnone\napplies to:\tall elements"
+  },
+  "white-space": {
+    "back": "values:\tnormal|nowrap|pre|pre-wrap|pre-line|inherit\ninitial value:\tnormal\napplies to:\tBlock-level elements"
+  },
+  "direction": {
+    "back": "values:\tltr|rtl|inherit\ninitial value:\tltr\napplies to:\tall elements"
+  },
+  "width": {
+    "back": "values:\t<length>|<percentage>|auto|inherit\ninitial value:\tauto\napplies to:\tBlock-level and replaced elements"
+  },
+  "height": {
+    "back": "values:\t<length>|<percentage>|auto|inherit\ninitial value:\tauto\napplies to:\tBlock-level and replaced elements"
+  },
+  "margin": {
+    "back": "values:\t<length>|<percentage>|auto|{1,4}|inline-block\ninitial value:\tnot defined\napplies to:\tall elements"
+  },
+  "border-style": {
+    "back": "values:\t[none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset]{1,4}|inherit\ninitial value:\tNot defined\napplies to:\tall elements"
+  },
+  "border-top-style,border-right-style,border-bottom-style, border-left-style": {
+    "back": "values:\tnone|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|inherit\ninitial value:\tnone\napplies to:\tall elements"
+  },
+  "border-width": {
+    "back": "values:\t[thin|medium|thick|<length>]{1,4}|inherit\ninitial value:\tnot defined\napplies to:\tall elements"
+  },
+  "border-top-width,border-right-width,border-bottom-width,border-left-width": {
+    "back": "values:\tthin|medium|thick|<length>|inherit\ninitial value:\tmedium\napplies to:\tall elements"
+  },
+  "border-color": {
+    "back": "values:\t[<color>|tranparent]{1,4}|inherit\ninitial value:\tnot defined\napplies to:\tall elements"
+  },
+  "border-top-color,border-right-color,border-bottom-color,border-left-color": {
+    "back": "values:\t<color>|tranparent|inherit\ninitial value:\tthe value of color for the element\napplies to:\tall elements"
+  },
+  "border-top,border-right,border-bottom,border-left": {
+    "back": "values:\t[<border-width>||<border-style>||<border-color>]|inherit\ninitial value:\tnot defined\napplies to:\tall elements"
+  },
+  "border": {
+    "back": "values:\t[<border-width>||<border-style>||<border-color>]|inherit\ninitial value:\trefer to individual properties\napplies to:\tall elements"
+  },
+  "padding": {
+    "back": "values:\t[<length>|<percentage>]{1.4}|inherit\ninitial value:\tnot defined\napplies to:\tall elements"
+  },
+  "padding-top,padding-right,padding-bottom,padding-left": {
+    "back": "values:\t<length>|<percentage>|inherit\ninitial value:\t0\napplies to:\tall elements"
+  },
+  "color": {
+    "back": "values:\t<color>|inherit\ninitial value:\tuer agent-specific\napplies to:\tall elements"
+  },
+  "background-color": {
+    "back": "values:\t<color>|tranparent|inherit\ninitial value:\ttransparent\napplies to:\tall elements"
+  },
+  "background-image": {
+    "back": "values:\t<uri>|none|inherit\ninitial value:\tnone\napplies to:\tall elements"
+  },
+  "background-repeat": {
+    "back": "values:\trepeat|repeat-x|repeat-y|no-repeat|inherit\ninitial value:\trepeat\napplies to:\tall elements"
+  },
+  "background-position": {
+    "back": "values:\t[[<percentage>|<length>|left|center|right][<percentage>]|<length>|top|center|bottom]?]||[[left|center|right]||[top|center|bottom]]|inherit\ninitial value:\t0% 0%\napplies to:\tBlock-level and replaced elements"
+  },
+  "background-attachment": {
+    "back": "values:\tscroll|fixed|inherit\ninitial value:\tscroll\napplies to:\tall elements"
+  },
+  "background": {
+    "back": "values:\t[<background-color>||<background-image>||<background-repeat>||<background-attachment>||<background-position>]|inherit\ninitial value:\trefer to individual properties\napplies to:\tall elements"
+  },
+  "float": {
+    "back": "values:\tleft|right|none|inherit\ninitial value:\tnone\napplies to:\tall elements"
+  },
+  "clear": {
+    "back": "values:\tleft|right|both|none|inherit\ninitial value:\tnone\napplies to:\tBlock-level elements"
+  },
+  "position": {
+    "back": "values:\tstatic|relative|absolute|fixed|inherit\ninitial value:\tstatic\napplies to:\tall elements"
+  },
+  "top,right,bottom,left": {
+    "back": "values:\t<length>|<percentage>|auto|inherit\ninitial value:\tauto\napplies to:\tpositioned elements with value other than static"
+  },
+  "min-width,min-height": {
+    "back": "values:\t<length>|<percentage>|inherit\ninitial value:\t0\napplies to:\tall elements except nonreplaced inline elements or table elements"
+  },
+  "max-width,max-height": {
+    "back": "values:\t<length>|<percentage>|none|inherit\ninitial value:\t0\napplies to:\tall elements except nonreplaced inline elements or table elements"
+  },
+  "overflow": {
+    "back": "values:\tvisible|hidden|scroll|auto|inherit\ninitial value:\tvisible\napplies to:\tBlock-level and replaced elements"
+  },
+  "clip": {
+    "back": "values:\trect(top,right,bottom,left)|auto|inherit\ninitial value:\tauto\napplies to:\tAbsolutely positioned elements"
+  },
+  "visibility": {
+    "back": "values:\tvisible|hidden|collapse|inherit\ninitial value:\tvisible\napplies to:\tall elements"
+  },
+  "z-index": {
+    "back": "values:\t<integer>|auto|inherit\ninitial value:\tauto\napplies to:\tpositioned elements"
+  },
+  "table-layout": {
+    "back": "values:\tauto|fixed|inherit\ninitial value:\tauto\napplies to:\ttable or inline-table elements"
+  },
+  "list-style-type": {
+    "back": "values:\tdisc|circle|square|decimal|decimal-leading-zero|upper-alpha|lower-alpha|upper-roman|lower-roman|lower-greek|...|none|inherit\ninitial value:\tdisc\napplies to:\telements with display value list-item"
+  },
+  "list-style-image": {
+    "back": "values:\t<uri>|none|inherit\ninitial value:\tnone\napplies to:\telements with display value list-item"
+  },
+  "content": {
+    "back": "values:\tnormal|[<string>|<uri>|<counter>|attr(<identifier>)|open-quote|close-quote|no-open-quote|no-close-quote]+|inherit\ninitial value:\tnormal\napplies to:\t:before or :after pseudo-elements"
+  },
+  "quotes": {
+    "back": "values:\t[<string><string>]+|none|inherit\ninitial value:\tuser agent-dependent\napplies to:\tall elements"
+  },
+  "counter-reset": {
+    "back": "values:\t[<identifier><integer>?]+|none|inherit\ninitial value:\tuser agent-dependent\napplies to:\tall elements"
+  },
+  "counter-increment": {
+    "back": "values:\t[<identifier><integer>?]+|none|inherit\ninitial value:\tuser agent-dependent\napplies to:\tall elements"
+  },
+}

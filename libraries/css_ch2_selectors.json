@@ -1,0 +1,74 @@
+{
+  "rule structure": {
+    "back": "h1 { color: red; background: yellow;}\n\nh1 - selector\ncolor: red - declaration\ncolor - property\nred - value\n{ color: red; background: yellow;} - declaration block"
+  },
+  "element selector": {
+    "back": "h1 { color: red; }\nall h1 elements are red"
+  },
+  "grouping selectors": {
+    "back": "h2, p { color: red; }\nall h1 and p elements are red\n\nequivalent to:\nh2 { color: red; }\np { color: red; }\n"
+  },
+  "universal selector": {
+    "back": "* { color: red; }\nevery element in the document is red"
+  },
+  "group declarations": {
+    "back": "h1 { color: red; }\nh1 { background: grey; }\n\nequivalent to:\nh1 { color: red; background: grey };"
+  },
+  "class selectors": {
+    "back": ".warning { font-weight: bold }\n\nall elements with class='warning' set the font to bold\n\nother examples:\np.warning { color: red; }\nall p elements with class='warning' are red"
+  },
+  "multiple classes": {
+    "back": "<p class='warning urgent'>...</p>\n\n.warning { font-weight: bold; }\n.urgent { font-style: italic; }\n.warning.urgent { background: silver; }\n\nchaning two classes together will only select elements with both\nclasses defined in any order"
+  },
+  "id selectors": {
+    "back": "#first-el { font-weight: bold; }\n\napplies to any element whose id attribute has a value of 'first-el'"
+  },
+  "class and id's": {
+    "back": "id's are unique within a document\nand cannot be combined since it doesn't make sence\n\nclasses can be assigne to any number of elements\nand can be grouped in selectors"
+  },
+  "attribute selectors": {
+    "back": "h1[class] { color: silver; }\n\nselects all h1 elements that have a class attribute\n\na[href][title] {font-weight: bold; }\n\nselects any a element with bot an href and a title attribute"
+  },
+  "exact attribute selectors": {
+    "back": "a[href='http://www.example.com'] { font-weight: bold; }\n\na[href='http://www.example.com'][title='example'] { font-size: 2005; }"
+  },
+  "partial attribute selectors": {
+    "back": "~=\tcontains rhs\n^=\tbegins with rhs\n$=\tends with rhs\n*=\t contains substring rhs\n\np[class~='warning'] {font-weight: bold;}"
+  },
+  "particular attribute selectors": {
+    "back": "*[lang|='en'] { color: white; }\nselects any lang attribute that is equal to 'en' or begins with 'en-'"
+  },
+  "descendent selectors (contextual selectors)": {
+    "back": "h1 em { color: red; }\n\nany em element that is a descendent of an h1 element"
+  },
+  "selecting children": {
+    "back": "h1 > strong { color: red; }\n\nany strong element that is a child of an h1 element"
+  },
+  "selecting adjacesnt siblings": {
+    "back": "h1 + p { margin-top: 0; }\n\nany p element the immediately follows an h1 element that shares a parent with the p element"
+  },
+  "select any ul element that immediately follows a sibling table element that is descendent fron a body element that is itself a child of an html element": {
+    "back": " html > body table + ul { color: red; }"
+  },
+  "Pseudo-Classes and Pseudo-Elements": {
+    "back": "these selectors let you assign styles to structures that don't necessarily exist in the document, or to phantom classes that are inferred by the stateof certain elements, or even by the state of the document itself"
+  },
+  "link pseudo-classes": {
+    "back": ":link\trefers to any anchor that is a hyperlink and points to an address that has not been visited\n\n:visited\trefers to any anchor that is a hyperlink to an already visited address\n\na:link {color: blue;}\na:visited {color: grey;}\na.external:visited{color: red}"
+  },
+  "dynamic pseudo-classes": {
+    "back": "classes that can change a documents appearance as a result of user behavior\n\n:focus\trefers to any element that currently has focus\n:hover\trefers to any element over which the mouse pointer is placed\n:active\trefers to any element that has been activated by user agent(mouse button down)"
+  },
+  "dynamic pseudo-classes example": {
+    "back": "a:link{color: navy;}\na:visited{color: gray;}\na:hover{color: red;}\na:active{color: yellow;}\ninput:focus{background: silver;}\na:link:hover{color: red;}"
+  },
+  "selecting a first child": {
+    "back": "p:first-child{color: gray;}"
+  },
+  "Pseudo-element selectors": {
+    "back": ":first-letter\n:first-line\n:before\n:after"
+  },
+  "style before and after elements": {
+    "back": "h2:before { content: ']]'; color: silver; }\n\ninserts generated content before all h2 elements\n\nbody:after { content: '   then end.'; }\n\ninserts generated content after the body element"
+  }
+}

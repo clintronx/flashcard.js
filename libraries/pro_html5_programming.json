@@ -1,0 +1,146 @@
+{
+  "html5 doctype tag": {
+    "back": "<!DOCTYPE html>"
+  },
+  "character set": {
+    "back": "<meta charset='utf-8' >"
+  },
+  "Content Types": {
+    "back": "Embedded\nFlow\nHeading\nInteractive\nMetadata\nPhrasing\nSectioning"
+  },
+  "Content Type: Embedded": {
+    "back": "Content that imports other resources into the document,\nfor example,\naudio, video, canvas, and iframe"
+  },
+  "Content Type: Flow": {
+    "back": "Elements used in the body of documents & applications,\nfor example,\nform, h1, & small"
+  },
+  "Content Type: Heading": {
+    "back": "Section headers,\nfor example,\nh1, h2, group"
+  },
+  "Content Type: Interactive": {
+    "back": "Content that users interact with,\nfor example,\naudio, video controls, button, & textarea"
+  },
+  "Content Type: Metadata": {
+    "back": "Elements commonly found in the head section\nthat setup the presentation of\nbehavior of the rest of the document,\nfor example,\nscript, style, & title"
+  },
+  "Content Type: Phrasing": {
+    "back": "Test & text markup elements,\nfor example,\n mark, kbd, sub, and sup"
+  },
+  "Content Type: Sectioning": {
+    "back": "Elements that define sections in the document,\nfor example,\narticle, aside, & title"
+  },
+  "Sectioning Elements": {
+    "back": "header\nfooter\nsection\narticle\naside\nnav"
+  },
+  "Sectioning Elements: Header": {
+    "back": "Header content\n(for a page or a section of a page)\n\n<header>\n\t<h1>Header</h1.\n</header>"
+  },
+  "Sectioning Elements: Footer": {
+    "back": "Footer content\n(for a page or a section of a page)\n\n<footer>\n\t<h2>footer</h2>\n</footer>"
+  },
+  "Sectioning Elements: Section": {
+    "back": "a section of a web page\n\n<section>\n\t<article>....</article>\n</section>"
+  },
+  "Sectioning Elements: Article": {
+    "back": "Independent article content\n\n<article>\n\t<header>...</header>\n\t<p>...</p>\n\t<footer>...</footer>\n</article>"
+  },
+  "Sectioning Elements: Aside": {
+    "back": "Related content or pull quotes\n\n<aside>\n\t<p>...</p>\n</aside>"
+  },
+  "Sectioning Elements: Nav": {
+    "back": "Navigational aids\n\n<nav>\n\t<a href='http://localhost'>link1</a>\n</nav>"
+  },
+  "stylesheet tag": {
+    "back": "<link rel='stylesheet' href='css/html.css'>\n\n<style type='text/css'>\n\th1{ font-size: 300%; }\n</style>"
+  },
+  "javascript tag": {
+    "back": "<script src='js/html5.js'></script>\n\n<script type='text/javascript>\n\tfunction example () { }\n</script>"
+  },
+  "getElementById()": {
+    "back": "returns the element with specified id attribute value\n\n<div id='foo'>\ndocument.getElementById('foo');"
+  },
+  "getElementsByName()": {
+    "back": "returns ALL elements whose name attribute has the specified value\n\n<input type='text' name='foo'>\ndocument.getElementsByName('foo');"
+  },
+  "getElementsByTagName()": {
+    "back": "return ALL elements whose tag name matches the specified value\n\n<input type='text'>\ndocument.getElementsByTagName('input');"
+  },
+  "querySelector()": {
+    "back": "return the first element in the page which matches the specified selector rule(s)\n\ndocument.querySelector('input.error');\nreturns the first input field with a style class of 'error'"
+  },
+  "querySelectorAll()": {
+    "back": "returns ALL elements which match the specified rule(s)\n\ndocument.querySelectorAll('#results td');\nreturns any table cell inside the element with id='results'"
+  },
+  "html5 example": {
+    "back": "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8'>\n\t\t<title>Html5</title>\n\t\t<link rel='stylesheet' href='css/html5.css'>\n\t</head>\n\t<body>\n\t\t<nav>\n\t\t\t<h3>NAV</h3>\n\t\t\t<a href='http://www.example.com'>link1</a>\n\t\t</nav>\n\t</body>\n</html>"
+  },
+  "geolocation: getCurrentPosition()": {
+    "back": "navigator.geolocation.getCurrentPosition(\n\tsuccessCallback,\n\terrorCallback, (optional)\n\toptions (optional));"
+  },
+  "geolocation: watchPosition()": {
+    "back": "updates callback when navigation changes\n\nnavigator.geolocation.watchPosition(\n\tsuccessCallback,\n\terrorCallback, (optional)\n\toptions (optional));"
+  },
+  "geolocation: clearWatch()": {
+    "back": "cancels updates from user's location\n\nnavigator.geolocation.clearWatch(\n\twatchId);"
+  },
+  "video tag": {
+    "back": "<video autobuffer='true' width='400px' height='300px' autoplay>\n\t<source src='movie.mp4'>\n\tNo Html5 video support\n</video>"
+  },
+  "audio tag": {
+    "back": "<audio controls autoplay>\n\t<source src='sound.mp3'>\n\tNo Sound Support\n</audio>"
+  },
+  "communications api: send message": {
+    "back": "window.postMessage(dataString, urlString);"
+  },
+  "communications api: message handler": {
+    "back": "function messageHandler(e) {\n\tif(checkWhileList(e.origin)){\n\t\tconsole.log(e.data);\n\t}\n};\nwindow.addEventListener('message', messageHandler, true);"
+  },
+  "XMLHttpRequest Level 2": {
+    "back": "var xhr = new XMLHttpRequest();\nxhr.onload = function (e) {/*finished*/}\nxhr.open('POST', url, true);\nxhr.send(data);"
+  },
+  "WebSocket Handshake": {
+    "back": "to establish WebSocket connection the client\nand server upgrade from HTTP protocal\nto WebSocket protocal"
+  },
+  "WebSocket": {
+    "back": "var w = new WebSocket(url);"
+  },
+  "WebSocket event listeners": {
+    "back": "w.onopen = function () {\n\tconsole.log('open');\nw.send('data');\n}\nw.onmessage = function (e) {\n\tconsole.log('e.data');\n}\nw.onclose = function () {\n\tconsole.log('closed');\n}"
+  },
+  "Html5 form elements": {
+    "back": "tel\ttelephone number\neamil\temail address text field\nurl\tweb location url\nsearch\tterm to supply to search engine\n\t\tfor example, the search bar\nrange\tnumeric selector within a range of values\n\t\ttypically as a slider"
+  },
+  "Html5 form elements api": {
+    "back": "<label>Email: <input type='email' placholder='name@domain.com' autofocus required></label>\n<label>Text: <input type='text' autocomplete='on'></label>\n<label>Url: <input type='url' placholder='http://www.example.com'></label>\n<label>Search: <input type='search'></label>\n<label>Tel: <input type='tel' placholder='111-222-3333'></label>\n<label>Range: <input id='confidence' type='range' min='0' max='10' step='2'"
+  },
+  "Html5 for datalist": {
+    "back": "<datalist id='contactList'>\n\t<option value='clinton.ayres@gmail.com' label='clintronx'>\n\t<option value='captain.america@gmail.com' label='first avenger'"
+  },
+  "Html5 form valueAsNumber()": {
+    "back": "document.getElementById('confidence').valueAsNumber(65);"
+  },
+  "Html5 from validation event listener": {
+    "back": "<form id='register'>\n\t<p><label id='name'>Name: </label><input type='text'></p>\n\t<input type='submit' name='register' value='Register'>\n</form>\ndocument.register.addEventListener('invalid', invalidHandler, true);"
+  },
+  "WebWorkers": {
+    "back": "var worker = new WebWorker('script.js');\nworker.postMessage('data to send');\nworker.addEventListener('message', messageHandler, true);\nvar messageHandler = function (e) {\n\tconsole.log(e.data);\n}"
+  },
+  "WebStorage types": {
+    "back": "window.sessionStorage\n\t- storage for life a single tab\n\t- not shared between tabs\n\nwindow.localStorage\n\t- storage beyond single tab or window\n\t- shared accross multiple views"
+  },
+  "WebStorage sessionStorage api": {
+    "back": "window.sessionStorage.setItem('key', 'value');\nwindow.sessionStorage.key = 'value';\nwindow.sessionStorage.getItem('key');\nwindow.sessionStorage.key;\nwindow.sessionStorage.removeItem('key');"
+  },
+  "WebStorage localStorage api": {
+    "back": "window.localStorage.setItem('key', 'value');\nwindow.localStorage.key = 'value';\nwindow.localStorage.getItem('key');\nwindow.localStorage.key;\nwindow.localStorage.removeItem('key');"
+  },
+  "Html5 offline api": {
+    "back": "add offline support by including a manifest\n\nwindow.applicationCache\n\n<!DOCTYPE html>\n<html manifest='application.manifest'>\n...\n</html>\n\n(applicaiton.manifest)\n\nCACHE MANIFEST\nexample.html\nexample.js\nexample.css\nexample.png"
+  },
+  "Html5 offline events": {
+    "back": "if(navigator.online){console.log('online')}\nwindow.addEventListener('online', onlineHandler, true);\nwindow.addEventListener('offline', offlineHandler, true);"
+  },
+  "Html5 offline manifest sections": {
+    "back": "CACHE MANIFEST - instructs the browser to serve the file from the application cache, even if online\nFALLBACK - give alternate paths to resources that cannot be fetched\nNETWORK - denotes resources that are always fetched from the network"
+  }
+}

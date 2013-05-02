@@ -1,0 +1,8 @@
+{
+  "table display values": {
+    "back": "table -\tdefines a block-level table element\ninline-table -\tdefines an inline table. generates an inline box\ntable-row -\telements in a row of cells\ntable-row-group -\tgroups one or more rows\ntable-header-group -\tvisually differnent, and is always displayed before all other rows and row groups\ntable-footer-group -\talways displayed after all rows and row groups\ntable-column -\tdescribes a column of cells\ntable-column-group -\tgroups one or more columns\ntable-cell -\tsingle cell in a table\ntable-caption -\ttables caption"
+  },
+  "table markup": {
+    "back": "<table>\n\t<tr>\n\t\t<td>Name:</td>\n\t\t<td><input type=\"text\"></td>\n\t</tr>\n</table>"
+  }
+}

@@ -1,5 +1,9 @@
 /*global document, console, setTimeout, clearTimeout */
 /*jslint plusplus: true */
+
+(function(){ window.app = {}; })();
+
+/*
 (function () {
     'use strict';
 
@@ -150,3 +154,4 @@
     side = BACK;
     flipClickEvent();
 }());
+*/

@@ -1,0 +1,35 @@
+{
+	"font families": {
+    	"back": "Serif - proportional and have serifs\nserifs are the decorations on the ends of the storkes\nSans-Serif - proportional and do not have serifs\nMonospace - not proportional\nCursive - attempt to emulate human handwriting\nFancy - non really defined by any single characteristic\nother than our inability to classify them\ninto the other font families"
+ 	},
+	"using generic font families": {
+    	"back": "body { font-family: sans-serif;}\nh1,h2,h3,h4 { font-family: serif; }"
+ 	},
+	"specifying a Font Family": {
+    	"back": "h1 { font-family: TimesNR, serif; }\nh2 { font-family: 'New Century Schoolbook', Times, serif; }"
+ 	},
+	"font-weight": {
+    	"back": "b { font-weight: bold; }"
+ 	},
+	"font-size": {
+    	"back": "absolute sizes:\np.one { font-size: small; }\np.two { font-size: large; }\n\nrelative sizes (relative to parent):\np { font-size: medium; }\nstrong { font-size: larger; }"
+ 	},
+	"font size and inheritance": {
+    	"back": "computed values are inherited in CSS not percentages\n\npercentages are cumulative"
+ 	},
+	"font-style": {
+    	"back": "p { font-style: normal; }\nem { font-style: italic; }"
+ 	},
+	"font-variant": {
+    	"back": "h1 { font-variant: small-caps; }"
+ 	},
+	"font-stretch": {
+    	"back": "strong { font-stretch: wider; }"
+ 	},
+	"font-size-adjust": {
+    	"back": "p {font: 10px Verdana, sans-serif; font-size-adjust: 0.58; }"
+ 	},
+	"font": {
+    	"back": "h1 {font: italic 900 small-caps 30px Verdana, Helvetica, Arial, sans-serif;}\nh2 {font: bold normal italic 24px Verdana, Helvetica, Arial, sans-serif;}"
+ 	}
+}

@@ -1,0 +1,35 @@
+{
+  "home projects": {
+    "back": "flashcard.js - html5 flascard player backed with sharable json libraries\ncodename - java spring app with html5 and crowd sourcing that asks for names of methods\nbased on the bodies. crowd sourcing chooses the most common name.\nEmphasis on reading code, which is a very important skill\nQdox and AST"
+  },
+  "facade pattern": {
+    "back": "facade pattern - SSO library, also heavy flavors of functional programming in the DSL layer.\nFacade is known as a structural pattern, as it's used to identifying a simple way to realize relationships between entitie."
+  },
+  "branch by abstraction pattern": {
+    "back": "bba pattern - BBA implementation to give legacy servlet and strut actions an alternate spring mvc framework\nwhich is used to reimplement the action with tests without worries of breaking legacy code\nthe @Quarantine, @BBA, @Deprecated, @Registry annotation support the framework\nspring annotation scanner is application context aware and cache is build on startup\nspring filter determines if the given actioin request is part of the BBA framework and passes the request to\nthe spring dispatcher.\nA handler adapter is created to inject Registry values into the controller."
+  },
+  "strategy pattern": {
+    "back": "Strategy pattern is known as a behavioural pattern - it's used to manage algorithms, relationships and responsibilities between objects\nLOB conversion - a Java generics implementation of reading and writing to LOBs\nmultiple strategies alter the behavior of the reading and writing that is specific to the individua LOB"
+  },
+  "Data transfer object - DTO": {
+  	"back":"Data transfer object (DTO) - is a design pattern used to transfer data between software application subsystems"
+  }
+  "natural computing": {
+    "back": "neural network - is an adaptive system changing its structure during a learning phase.\nNeural networks are used for modeling complex relationships between inputs and outputs or for find patterns in data.\nbrain.js - neural network lib in js\nsphinx - speach recognition system that users train to on grammer with lots of data to perdict unknown input"
+  },
+  "buzzwords from resume": {
+    "back": "software delivery/infra as code/org transfomation - puppet and CD\ndeveloper advocacy, product innovation - bba\ntraining - git koans"
+  },
+  "internet of things": {
+    "back": "kevin ashton 1999 - computers become capable of generating and collecting data by themselves, without human oversight.\n"
+  },
+  "mdn code highlighting": {
+    "back": "have you inspected Mozilla's code samples, every text is catagorized and tagged for custom styling...awesome"
+  },
+  "OOP": {
+    "back": "inheritance - inherit members from parent class\nabstraction - define and execute abstract actions\nList in the standard library is an abstraction for a sequence of items,\nindexed by their position, concrete examples of a List are an ArrayList or a LinkedList.\nCode that interacts with a List abstracts over the detail of which kind of a list it is using\nencapsulation - hide the internals of a class\nrefers to the state of objects - objects encapsulate their state and hide it from the outside;\noutside users of the class interact with it through its methods, but cannot access the classes state directly\npolymorphism - access a class through its parent interface\ncohesion - a measure of how closely related all the responsibilities, data, and methods of a class are to each other\ncoupling - a measure of how interconnected those classes or subsystems are.\nTight coupling means that related classes have to know internal details of each other,\nchanges ripple through the system, and the system is potentially harder to understand"
+  },
+  "view experience": {
+  	"back": "jsp's with details and overview sections, search pages, interactive forms, large field forms.\nbootstrap css integration with jsp and spring security"
+  }
+}
