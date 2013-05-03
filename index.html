@@ -11,13 +11,16 @@
     <script src="lib/underscore.js"></script>
     <script src="lib/backbone.js"></script>
     <script src="src/flashcard.js"></script>
-    <script src="src/js/models/card_model.js"></script>
-    <script src="src/js/views/card_view.js"></script>
+    <script src="src/js/models/CardModel.js"></script>
+    <script src="src/js/views/AdvanceDeckView.js"></script>
+    <script src="src/js/views/CardView.js"></script>
     <script>
       var card = new app.Card({'front': 'front', 'back': 'back'});
       var cardView = new app.CardView({model: card});
+      var advanceDeckView = new app.AdvanceDeckView({});
 
       $('body').append(cardView.render());
+      $('body').append(advanceDeckView.render());
     </script>
   </body>
 </html>

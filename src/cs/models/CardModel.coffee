@@ -1,4 +1,4 @@
-app.Card = Backbone.Model.extend
+class app.Card extends Backbone.Model
   
   defaults:
     front: 'front',  #content on front of card
