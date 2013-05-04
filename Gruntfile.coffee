@@ -9,12 +9,12 @@ module.exports = (grunt) ->
       all:
         files: [
           expand: true
-          cwd: 'src/cs/'
+          cwd: 'site/src/cs/'
           src: '**/*.coffee'
-          dest: 'src/js/'
+          dest: 'site/src/js/'
           ext: '.js'
         ]
     watch:
       coffee:
-        files: 'src/cs/**/*.coffee'
+        files: 'site/src/cs/**/*.coffee'
         tasks: ['coffee']

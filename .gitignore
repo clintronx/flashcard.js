@@ -1,7 +1,7 @@
 .DS_Store
 
 node_modules/
-libraries/
-src/js/
+site/libraries/
+site/src/js/
 
-src/**/*.js
+site/src/**/*.js
