@@ -8,12 +8,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', ['coffee', 'watch']
 
   grunt.initConfig
-    uglify: 
-      options: 
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      build:
-        src: 'src/cs/<%= pkg.name %>.coffee'
-        dest: 'src/js/<%= pkg.name %>.min.js'
     coffee:
       all:
         files: [
