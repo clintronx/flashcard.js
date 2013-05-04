@@ -37,4 +37,4 @@ app.get '/library/:name', (request, response) ->
 
 app.get '/libraries', (request, response) ->
   libs = fs.readdirSync "./site/libraries"
-  response.send libs
+  response.send (library: lib for lib in libs)
