@@ -5,7 +5,7 @@ class app.CardView extends Backbone.View
   
   template: _.template '' +
     '<p id="card">' + 
-      '<% if(current === "front"){ %>' +
+      '<% if(viewing === "front"){ %>' +
         '<%= front %>' + 
       '<% }else{ %><'+
         '%= back %><% } %>' +
@@ -13,12 +13,13 @@ class app.CardView extends Backbone.View
 
   render: =>
     @$el.html @template(@model.toJSON())
+    @
   
   initialize: ->
     @model.on 'change', @render, @
   
   events:
     "click #card": "toggleCard"
-  
+
   toggleCard: ->
     @model.toggleCard()

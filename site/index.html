@@ -10,17 +10,29 @@
     <script src="lib/json2.js"></script>
     <script src="lib/underscore.js"></script>
     <script src="lib/backbone.js"></script>
-    <script src="src/flashcard.js"></script>
-    <script src="src/js/models/CardModel.js"></script>
+    <script src="src/js/flashcard.js"></script>
+    <script src="src/js/collections/Decks.js"></script>
+    <script src="src/js/collections/DecksProperties.js"></script>
+    <script src="src/js/models/Card.js"></script>
+    <script src="src/js/models/DeckProperties.js"></script>
     <script src="src/js/views/AdvanceDeckView.js"></script>
     <script src="src/js/views/CardView.js"></script>
+    <script src="src/js/views/DecksPropertiesView.js"></script>
+    <script src="src/js/views/DeckPropertiesView.js"></script>
+    <script src="src/js/views/DecksView.js"></script>
     <script>
-      var card = new app.Card({'front': 'front', 'back': 'back'});
-      var cardView = new app.CardView({model: card});
-      var advanceDeckView = new app.AdvanceDeckView({});
+      // var card = new app.Card({'front': 'front', 'back': 'back'});
+      // var cardView = new app.CardView({model: card});
 
-      $('body').append(cardView.render());
-      $('body').append(advanceDeckView.render());
+      // var advanceDeckView = new app.AdvanceDeckView({});
+      var decks = new app.DecksPropertiesView();
+      // var deck = new app.DeckView();
+
+      // $('body').append(cardView.render());
+      // $('body').append(deck.render().el);
+      // $('body').append(advanceDeckView.render());
+      $('body').append(decks.render().el);
+      // $('#decks li').on('click', function(e){ console.log("clicked "+e.currentTarget.innerText); });
     </script>
   </body>
 </html>

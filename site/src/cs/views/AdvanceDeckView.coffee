@@ -3,7 +3,6 @@ class app.AdvanceDeckView extends Backbone.View
   initialize: ->
     @activeID = {}
 
-  #extact to separate models and have single template line
   template: -> _.template '' +
     '<div id="prev_card"></div>' +
     '<div id="next_card"></div>'
@@ -18,9 +17,6 @@ class app.AdvanceDeckView extends Backbone.View
     "mouseover #prev_card": "showPrev"
 
   advance: =>
-    #grap current model in collection
-    #transform the collection - go to next or prev model
-    #render model
 
   showNext: => @show $('#next_card'), 'next_background'
 

@@ -87,19 +87,19 @@
         transform: scaleX(-1);
     }
 
-#library {
+#decks {
     position: absolute;
     bottom: -50px;
     left: -50px;
     right: -50px;
-    font-size: 5em;
+    /*font-size: 5em;*/
     line-height: 1em;
     text-align: center;
     z-index: 2;
     opacity: 0;
 }
     
-    #library.show {
+    #decks.show {
         opacity: 0.2;
     }
 

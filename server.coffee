@@ -8,7 +8,7 @@ fs = require 'fs'
 app = express()
 
 # Configure server
-app.configure = () -> 
+app.configure () -> 
     #parses request body and populates request.body
     app.use express.bodyParser() 
 
@@ -31,10 +31,34 @@ app.listen port, () ->
     console.log 'Express server listening on port %d in %s mode', port, app.settings.env 
 
 # Routes
-app.get '/library/:name', (request, response) -> 
-    lib = require "./site/libraries/#{request.params.name}"
+LIB_DIR = "./site/libraries"
+
+#get all decks properties
+#returns json array of deck property models
+#[{name: "filename", size: "number of cards in the deck"},...]
+app.get '/decks', (request, response) ->
+  filenames = fs.readdirSync LIB_DIR
+
+  deckProperties = []
+  for filename in filenames
+    try
+      contents = JSON.parse fs.readFileSync("#{LIB_DIR}/#{filename}")
+    catch e
+      console.log "error encountered processing file #{filename} - ensure file is properly formatted JSON - skipping file"
+      continue
+    
+    deckProperties.push
+      name: filename
+      size: if contents.length then contents.length else 1
+
+  response.send deckProperties
+
+#get all cards from the deck
+app.get '/deck/:name', (request, response) -> 
+    lib = require "#{LIB_DIR}/#{request.params.name}"
     response.send lib
 
-app.get '/libraries', (request, response) ->
-  libs = fs.readdirSync "./site/libraries"
-  response.send (library: lib for lib in libs)
+#get a single card from the deck
+app.get '/deck/:name/:id', (request, response) -> 
+    lib = require "#{LIB_DIR}/#{request.params.name}"
+    response.send lib[request.params.id]
