@@ -37,21 +37,21 @@ LIB_DIR = "./site/libraries"
 #returns json array of deck property models
 #[{name: "filename", size: "number of cards in the deck"},...]
 app.get '/decks', (request, response) ->
-  filenames = fs.readdirSync LIB_DIR
+  fs.readdir LIB_DIR, (err, files) ->
 
-  deckProperties = []
-  for filename in filenames
-    try
-      contents = JSON.parse fs.readFileSync("#{LIB_DIR}/#{filename}")
-    catch e
-      console.log "error encountered processing file #{filename} - ensure file is properly formatted JSON - skipping file"
-      continue
-    
-    deckProperties.push
-      name: filename
-      size: if contents.length then contents.length else 1
+    deckProperties = []
+    for filename in files
+      try
+        contents = JSON.parse fs.readFileSync("#{LIB_DIR}/#{filename}")
+      catch e
+        console.log "error encountered processing file #{filename} - ensure file is properly formatted JSON - skipping file"
+        continue
+      
+      deckProperties.push
+        name: filename
+        size: if contents.length then contents.length else 1
 
-  response.send deckProperties
+    response.send deckProperties
 
 #get all cards from the deck
 app.get '/deck/:name', (request, response) -> 
