@@ -9,26 +9,26 @@ app = express()
 
 # Configure server
 app.configure () -> 
-    #parses request body and populates request.body
-    app.use express.bodyParser() 
+  #parses request body and populates request.body
+  app.use express.bodyParser() 
 
-    #checks request.body for HTTP method overrides
-    app.use express.methodOverride() 
+  #checks request.body for HTTP method overrides
+  app.use express.methodOverride() 
 
-    #perform route lookup based on url and HTTP method
-    app.use app.router 
+  #perform route lookup based on url and HTTP method
+  app.use app.router 
 
-    #Where to serve static content
-    app.use express.static path.join application_root, 'site'  
+  #Where to serve static content
+  app.use express.static path.join application_root, 'site'  
 
-    #Show all errors in development
-    app.use express.errorHandler {dumpExceptions: true, showStack: true}
+  #Show all errors in development
+  app.use express.errorHandler {dumpExceptions: true, showStack: true}
 
 
 #Start server
 port = 4040
 app.listen port, () -> 
-    console.log 'Express server listening on port %d in %s mode', port, app.settings.env 
+  console.log 'Express server listening on port %d in %s mode', port, app.settings.env 
 
 # Routes
 LIB_DIR = "./site/libraries"
@@ -55,10 +55,10 @@ app.get '/decks', (request, response) ->
 
 #get all cards from the deck
 app.get '/deck/:name', (request, response) -> 
-    lib = require "#{LIB_DIR}/#{request.params.name}"
-    response.send lib
+  lib = require "#{LIB_DIR}/#{request.params.name}"
+  response.send lib
 
 #get a single card from the deck
 app.get '/deck/:name/:id', (request, response) -> 
-    lib = require "#{LIB_DIR}/#{request.params.name}"
-    response.send lib[request.params.id]
+  lib = require "#{LIB_DIR}/#{request.params.name}"
+  response.send lib[request.params.id]

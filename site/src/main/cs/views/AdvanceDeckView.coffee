@@ -1,4 +1,4 @@
-class app.AdvanceDeckView extends Backbone.View
+class app.view.AdvanceDeckView extends Backbone.View
 
   initialize: ->
     @activeID = {}

@@ -1,4 +1,4 @@
-class app.CardView extends Backbone.View
+class app.view.CardView extends Backbone.View
 
   tagName: 'section'
   id: 'view'

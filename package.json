@@ -6,9 +6,13 @@
     "url":  "https://github.com/clintronx/flashcard.js.git"
     },
   "devDependencies": {
+    "karma": "~0.8.5",
+    "istanbul": "~0.1.35",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.3.1",
     "grunt-contrib-coffee": "~0.5.0",
+    "grunt-contrib-sass": "~0.3.0",
+    "grunt-istanbul": "~0.2.1",
     "express": "~3.1.0",
     "path": "~0.4.9",
     "mongoose": "~3.5.5"

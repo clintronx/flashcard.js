@@ -10,29 +10,31 @@
     <script src="lib/json2.js"></script>
     <script src="lib/underscore.js"></script>
     <script src="lib/backbone.js"></script>
-    <script src="src/js/flashcard.js"></script>
-    <script src="src/js/collections/Decks.js"></script>
-    <script src="src/js/collections/DecksProperties.js"></script>
-    <script src="src/js/models/Card.js"></script>
-    <script src="src/js/models/DeckProperties.js"></script>
-    <script src="src/js/views/AdvanceDeckView.js"></script>
-    <script src="src/js/views/CardView.js"></script>
-    <script src="src/js/views/DecksPropertiesView.js"></script>
-    <script src="src/js/views/DeckPropertiesView.js"></script>
-    <script src="src/js/views/DecksView.js"></script>
+    <script src="lib/handlebars-1.0.0-rc.4.js"></script>
+    <script src="src/main/js/flashcard.js"></script>
+    <script src="src/main/js/collections/Decks.js"></script>
+    <script src="src/main/js/collections/DecksProperties.js"></script>
+    <script src="src/main/js/models/Card.js"></script>
+    <script src="src/main/js/models/DeckProperties.js"></script>
+    <script src="src/main/js/views/AdvanceDeckView.js"></script>
+    <script src="src/main/js/views/CardView.js"></script>
+    <script src="src/main/js/views/DecksPropertiesView.js"></script>
+    <script src="src/main/js/views/DeckPropertiesView.js"></script>
+    <script src="src/main/js/views/DecksView.js"></script>
+    <script src="src/main/js/Router.js"></script>
+    <script src="src/main/js/utils/TemplateEngine.js"></script>
+    <script id="decksOptions" type="text/x-handlebars-template">
+        {{#each decks}}
+        <option value="{{name}}">{{name}}</option>
+        {{/each}}
+    </script>    
+    <script id="template" type="text/x-handlebars-template">
+    </script> 
     <script>
-      // var card = new app.Card({'front': 'front', 'back': 'back'});
-      // var cardView = new app.CardView({model: card});
-
-      // var advanceDeckView = new app.AdvanceDeckView({});
-      var decks = new app.DecksPropertiesView();
-      // var deck = new app.DeckView();
-
-      // $('body').append(cardView.render());
-      // $('body').append(deck.render().el);
-      // $('body').append(advanceDeckView.render());
-      $('body').append(decks.render().el);
-      // $('#decks li').on('click', function(e){ console.log("clicked "+e.currentTarget.innerText); });
+      window.H = new app.util.TemplateEngine()
+      var router = new app.Router()
+      Backbone.history.start({pushState: true});
+      router.navigate(""); 
     </script>
   </body>
 </html>

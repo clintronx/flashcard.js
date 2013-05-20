@@ -1,4 +1,4 @@
-class app.DeckProperties extends Backbone.Model
+class app.model.DeckProperties extends Backbone.Model
 
   defaults:
     name: ""

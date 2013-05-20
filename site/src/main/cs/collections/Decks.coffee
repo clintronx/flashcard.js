@@ -1,4 +1,4 @@
-class app.Decks extends Backbone.Collection
+class app.collection.Decks extends Backbone.Collection
 
   defaults:
     name: ""

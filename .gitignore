@@ -5,3 +5,4 @@ site/libraries/
 site/src/js/
 
 site/src/**/*.js
+site/css/**/*.css

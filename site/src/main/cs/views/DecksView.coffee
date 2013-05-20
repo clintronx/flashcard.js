@@ -1,4 +1,4 @@
-class app.DecksView extends Backbone.View 
+class app.view.DecksView extends Backbone.View 
 
   initialize: (options) ->
     _.extend @, options

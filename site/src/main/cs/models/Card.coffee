@@ -1,4 +1,4 @@
-class app.Card extends Backbone.Model
+class app.model.Card extends Backbone.Model
   
   defaults:
     name: ""
