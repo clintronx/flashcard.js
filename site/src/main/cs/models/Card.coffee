@@ -16,4 +16,3 @@ class app.model.Card extends Backbone.Model
     switch @.get 'viewing'
       when 'front' then @.set viewing: 'back'
       when 'back' then @.set viewing: 'front'
-      #this.save();

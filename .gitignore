@@ -2,7 +2,10 @@
 
 node_modules/
 site/libraries/
-site/src/js/
+
+site/src/main/js
+site/src/test/js
+site/css
 
 site/src/**/*.js
 site/css/**/*.css
