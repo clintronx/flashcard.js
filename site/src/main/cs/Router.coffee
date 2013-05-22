@@ -5,5 +5,5 @@ class app.Router extends Backbone.Router
     "flashcard/decks" : "decks"
 
   index: ->
-    decks = new app.view.DecksPropertiesView()
+    decks = new app.view.DecksView()
     $('body').append decks.render().el    

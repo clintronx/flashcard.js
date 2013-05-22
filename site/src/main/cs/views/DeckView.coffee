@@ -1,4 +1,4 @@
-class app.view.DeckPropertiesView extends Backbone.View
+class app.view.DeckView extends Backbone.View
 
   tagName: "option"
   

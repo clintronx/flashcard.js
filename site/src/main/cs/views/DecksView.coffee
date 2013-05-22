@@ -1,8 +1,14 @@
-class app.view.DecksView extends Backbone.View 
+class app.view.DecksView extends Backbone.View
 
-  initialize: (options) ->
-    _.extend @, options
-    @collection = new app.Decks name: @name
+  tagName: "select"
+  id: "input"
+  className: "show decks"
+
+  events:
+    "change select": "_alert"
+
+  initialize: ->
+    @collection = new app.collection.Decks()
     @collection.fetch reset: true
     @render()
 
@@ -10,13 +16,8 @@ class app.view.DecksView extends Backbone.View
 
   render: ->
     @$el.empty()
-
-    card = @collection.filter (card) -> card.get "focus" is true
-    card = @collection.first() unless card.length
-
-    @renderCard card
+    @$el.append H.compile('#decksOptions') decks: @collection.toJSON()
     @
 
-  renderCard: (card) ->
-    cardView = new app.CardView model: card
-    @$el.html cardView.render().el
+  _alert: (event) ->
+    alert("selected = #{event.currentTarget}")
