@@ -3,8 +3,8 @@
 node_modules/
 site/libraries/
 
-site/src/main/js
-site/src/test/js
+site/src/js/main
+site/src/js/test
 site/css
 
 site/src/**/*.js

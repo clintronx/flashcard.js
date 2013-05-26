@@ -1,10 +1,12 @@
 class app.view.CardView extends Backbone.View
 
   tagName: 'canvas'
-  id: -> @model.get 'name'
   className: 'small'
-  attributes: ->
-    "data-view": @model.get 'viewing'
+  attributes:
+    "data-view": "default"
+
+  events:
+    "click": "toggleCard"
 
   render: -> 
     @_renderText()  
@@ -43,11 +45,9 @@ class app.view.CardView extends Backbone.View
         
       
       ctx.fillText(line, x, y)
-    @
-    
-  events:
-    "click": "toggleCard"
+    @    
 
   toggleCard: ->
     @model.toggleCard()
+    @$el.attr 'data-view', @model.get 'viewing'
     @render()

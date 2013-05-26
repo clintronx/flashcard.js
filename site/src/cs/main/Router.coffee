@@ -11,7 +11,7 @@ class app.Router extends Backbone.Router
     ""
 
   initialize: ->
-    @decksProperties = new app.collection.DecksProperties()
+    @decksProperties = new app.collection.Decks()
 
   index: ->
     decksView = new app.view.DecksView collection: @decksProperties
@@ -25,7 +25,7 @@ class app.Router extends Backbone.Router
       el = $ '<div class="deck">'
       
       collection.each (card) =>
-        cardView = new app.view.CardView model: card
+        cardView = new app.view.CardView model: card, attributes: "data-view": card.get 'viewing'
         el.append cardView.render().el
       
       $('body').append el

@@ -1,7 +1,4 @@
-class app.collection.DecksProperties extends Backbone.Collection
-
-  defaults:
-    name: ""
+class app.collection.Decks extends Backbone.Collection
 
   url: () -> "/decks"
 
