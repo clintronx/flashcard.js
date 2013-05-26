@@ -11,16 +11,16 @@
     <script src="lib/underscore.js"></script>
     <script src="lib/backbone.js"></script>
     <script src="lib/handlebars-1.0.0-rc.4.js"></script>
-    <script src="src/main/js/flashcard.js"></script>
-    <script src="src/main/js/collections/Decks.js"></script>
-    <script src="src/main/js/collections/Deck.js"></script>
-    <script src="src/main/js/models/Card.js"></script>
-    <script src="src/main/js/models/Deck.js"></script>
-    <script src="src/main/js/views/AdvanceDeckView.js"></script>
-    <script src="src/main/js/views/CardView.js"></script>
-    <script src="src/main/js/views/DecksView.js"></script>
-    <script src="src/main/js/Router.js"></script>
-    <script src="src/main/js/utils/TemplateEngine.js"></script>
+    <script src="src/js/main/flashcard.js"></script>
+    <script src="src/js/main/collections/Cards.js"></script>
+    <script src="src/js/main/collections/DecksProperties.js"></script>
+    <script src="src/js/main/models/Card.js"></script>
+    <script src="src/js/main/models/Deck.js"></script>
+    <script src="src/js/main/views/AdvanceDeckView.js"></script>
+    <script src="src/js/main/views/CardView.js"></script>
+    <script src="src/js/main/views/DecksView.js"></script>
+    <script src="src/js/main/Router.js"></script>
+    <script src="src/js/main/utils/TemplateEngine.js"></script>
     <script id="decksOptions" type="text/x-handlebars-template">
         {{#each decks}}
         <option value="{{name}}">{{name}}</option>
@@ -30,9 +30,9 @@
     </script> 
     <script>
       window.H = new app.util.TemplateEngine()
-      var router = new app.Router()
+      app.router = new app.Router()
       Backbone.history.start({pushState: true});
-      router.navigate(""); 
+      app.router.navigate(""); 
     </script>
   </body>
 </html>

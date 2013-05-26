@@ -1,9 +1,10 @@
-class app.collection.Deck extends Backbone.Collection
+class app.collection.Cards extends Backbone.Collection
 
   defaults:
     name: ""
 
-  url: -> "deck/#{@name}"
+  url: ->  
+    "/deck/#{@name}"
 
   initialize: (models, options) ->
     _.extend @, options

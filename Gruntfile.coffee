@@ -8,24 +8,24 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'default', ['coffeelint', 'coffee', 'sass', 'watch']
 
-  COFFEE = [ 'site/src/main/cs/**/*.coffee', 'site/src/test/cs/spec/**/*.coffee' ]
+  COFFEE = [ 'site/src/cs/main/**/*.coffee', 'site/src/cs/test/spec/**/*.coffee' ]
 
   grunt.initConfig
     coffee:
       all:
         files: [
           expand: true
-          cwd: 'site/src/main/cs/'
+          cwd: 'site/src/cs/main/'
           src: '**/*.coffee'
-          dest: 'site/src/main/js/'
+          dest: 'site/src/js/main/'
           ext: '.js'
         ]
       tests:
         files: [
           expand: true
-          cwd: 'site/src/test/cs/spec/'
+          cwd: 'site/src/cs/test/spec/'
           src: '**/*.coffee'
-          dest: 'site/src/test/js/spec/'
+          dest: 'site/src/js/test/spec/'
           ext: '.js'
         ]
     sass:
@@ -44,7 +44,7 @@ module.exports = (grunt) ->
         files: 'site/scss/**/*.scss'
         tasks: ['sass']
       # karma:
-      #   files: ['site/src/main/js/**/*.js', 'site/src/test/js/spec/**/*.js']
+      #   files: ['site/src/js/main/**/*.js', 'site/src/js/test/spec/**/*.js']
       #   tasks: ['karma:unit:run']
     coffeelint: 
       sources: COFFEE

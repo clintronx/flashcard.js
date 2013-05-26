@@ -2,16 +2,15 @@ class app.view.DecksView extends Backbone.View
 
   tagName: "select"
   id: "input"
-  className: "show decks"
+  className: "decks"
 
   events:
-    "change select": "_alert"
+    "change": "_changeSelected"
 
-  initialize: ->
-    @collection = new app.collection.Decks()
-    @collection.fetch reset: true
+  initialize: (options) ->
     @render()
 
+    @collection.fetch reset: true
     @listenTo @collection, 'reset', this.render
 
   render: ->
@@ -19,5 +18,5 @@ class app.view.DecksView extends Backbone.View
     @$el.append H.compile('#decksOptions') decks: @collection.toJSON()
     @
 
-  _alert: (event) ->
-    alert("selected = #{event.currentTarget}")
+  _changeSelected: () ->
+    app.router.navigate("flashcard/deck/#{$(@el).val()}", trigger: true); 

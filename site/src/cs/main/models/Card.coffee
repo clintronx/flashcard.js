@@ -1,5 +1,5 @@
 class app.model.Card extends Backbone.Model
-  
+ 
   defaults:
     name: ""
     front: 'front',  #content on front of card
@@ -13,3 +13,7 @@ class app.model.Card extends Backbone.Model
     switch @.get 'viewing'
       when 'front' then @.set viewing: 'back'
       when 'back' then @.set viewing: 'front'
+
+  isViewing: (guess) =>
+    return true if @.get('viewing') is guess
+    return false
