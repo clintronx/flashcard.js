@@ -2,7 +2,7 @@ class app.view.DecksView extends Backbone.View
 
   tagName: "select"
   id: "input"
-  className: "decks"
+  className: "decks span5"
 
   events:
     "change": "_changeSelected"
