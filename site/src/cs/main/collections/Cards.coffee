@@ -4,7 +4,7 @@ class app.collection.Cards extends Backbone.Collection
     name: ""
 
   url: ->  
-    "/deck/#{@name}"
+    "/flashcard/deck/#{@name}"
 
   initialize: (models, options) ->
     _.extend @, options

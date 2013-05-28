@@ -3,9 +3,9 @@ class app.Router extends Backbone.Router
   routes:
     "": "index"
 
-    "flashcard/deck/:name": "deck"
+    "deck/:name": "deck"
 
-    "flashcard/decks" : "decks"
+    "decks" : "decks"
 
   events:
     ""

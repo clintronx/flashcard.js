@@ -36,7 +36,7 @@ LIB_DIR = "./site/libraries"
 #get all decks properties
 #returns json array of deck property models
 #[{name: "filename", size: "number of cards in the deck"},...]
-app.get '/decks', (request, response) ->
+app.get '/flashcard/decks', (request, response) ->
   fs.readdir LIB_DIR, (err, files) ->
 
     deckProperties = []
@@ -54,11 +54,11 @@ app.get '/decks', (request, response) ->
     response.send deckProperties
 
 #get all cards from the deck
-app.get '/deck/:name', (request, response) -> 
+app.get '/flashcard/deck/:name', (request, response) -> 
   lib = require "#{LIB_DIR}/#{request.params.name}"
   response.send lib
 
 #get a single card from the deck
-app.get '/deck/:name/:id', (request, response) -> 
+app.get '/flashcard/deck/:name/:id', (request, response) -> 
   lib = require "#{LIB_DIR}/#{request.params.name}"
   response.send lib[request.params.id]

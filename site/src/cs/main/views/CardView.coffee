@@ -1,9 +1,11 @@
 class app.view.CardView extends Backbone.View
 
   tagName: 'canvas'
-  className: 'small'
+  # className: 'small'
   attributes:
     "data-view": "default"
+    "height": "200px"
+    "width": "200px"
 
   events:
     "click": "toggleCard"

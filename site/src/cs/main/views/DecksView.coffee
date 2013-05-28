@@ -19,4 +19,4 @@ class app.view.DecksView extends Backbone.View
     @
 
   _changeSelected: () ->
-    app.router.navigate("flashcard/deck/#{$(@el).val()}", trigger: true); 
+    app.router.navigate("deck/#{$(@el).val()}", trigger: true); 
