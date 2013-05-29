@@ -34,6 +34,7 @@ module.exports = (grunt) ->
           'site/css/layout.css':'site/scss/layout.scss',
           'site/css/flashcard.css':'site/scss/flashcard.scss'
           'site/css/bootstrap.css':'site/scss/bootstrap.scss'
+          'site/css/bootstrap-responsive.css':'site/scss/bootstrap-responsive.scss'
         options:
           style: 'expanded'
           unixNewlines: true          

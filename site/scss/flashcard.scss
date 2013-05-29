@@ -14,16 +14,18 @@ $ratio: 0.6;
   position: relative;
   height: $height;
   width: 100%;
-  // overflow: hidden;
 }
 
-canvas {
+#card {
   outline: 1px solid gray;
   margin: 1em;
-  .small {
-    height: $height;
-    width: $height * $ratio;
-  }
+  padding: 1em;
+  display: inline-block;
+}
+
+.small {
+  height: $height;
+  width: ($height * $ratio) + $height;
 }
 
 

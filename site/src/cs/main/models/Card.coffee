@@ -14,6 +14,5 @@ class app.model.Card extends Backbone.Model
       when 'front' then @.set viewing: 'back'
       when 'back' then @.set viewing: 'front'
 
-  isViewing: (guess) =>
-    return true if @.get('viewing') is guess
-    return false
+  getText: ->
+    return @.get @.get('viewing')

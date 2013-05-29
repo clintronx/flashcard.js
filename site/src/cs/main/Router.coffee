@@ -15,18 +15,22 @@ class app.Router extends Backbone.Router
 
   index: ->
     $('body').empty()
+    $('body').append H.compile '#scaffolding'
+
     decksView = new app.view.DecksView collection: @decksProperties
-    $('body').append decksView.render().el 
+    $('.navbar').append decksView.render().el 
 
   deck: (name) ->
-    $('.deck').remove()
-
-    cards = new app.collection.Cards [], name: name    
-    cards.fetch reset: true, success: (collection, response, options) =>
-      el = $ '<div class="deck">'
-      
-      collection.each (card) =>
-        cardView = new app.view.CardView model: card, attributes: "data-view": card.get 'viewing'
-        el.append cardView.render().el
-      
-      $('body').append el
+    $('.container').empty()
+    cards = new app.collection.Cards [], name: name  
+    cards.fetch 
+      reset: true
+      success: (collection, response, options) =>  
+        collection.each (card) =>
+          options =
+            model: card
+            attributes: 
+              "data-view": card.get 'viewing'
+          
+          cardView = new app.view.CardView options        
+          $('.container').append cardView.render().el
