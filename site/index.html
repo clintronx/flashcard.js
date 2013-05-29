@@ -5,8 +5,6 @@
     <meta charset="utf-8" >
     <link rel="stylesheet" href="css/bootstrap.css" >
     <link rel="stylesheet" href="css/flashcard.css" >
-  </head>
-  <body>
     <script src="lib/jquery.v1.9.1.js"></script>
     <script src="lib/json2.js"></script>
     <script src="lib/underscore.js"></script>
@@ -27,14 +25,16 @@
         {{#each decks}}
         <option value="{{name}}">{{name}}</option>
         {{/each}}
-    </script>    
-    <script id="template" type="text/x-handlebars-template">
     </script> 
     <script>
-      window.H = new app.util.TemplateEngine()
-      app.router = new app.Router()
-      Backbone.history.start({pushState: true});
-      app.router.navigate(""); 
+      $(function() {
+        window.H = new app.util.TemplateEngine()
+        app.router = new app.Router()
+        Backbone.history.start({pushState: true});
+        app.router.navigate(""); 
+      })();
     </script>
+  </head>
+  <body>
   </body>
 </htm

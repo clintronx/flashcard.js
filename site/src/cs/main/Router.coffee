@@ -14,6 +14,7 @@ class app.Router extends Backbone.Router
     @decksProperties = new app.collection.Decks()
 
   index: ->
+    $('body').empty()
     decksView = new app.view.DecksView collection: @decksProperties
     $('body').append decksView.render().el 
 
