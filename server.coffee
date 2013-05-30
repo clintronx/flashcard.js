@@ -8,18 +8,18 @@ fs = require 'fs'
 app = express()
 
 # Configure server
-app.configure () -> 
+app.configure () ->
   #parses request body and populates request.body
-  app.use express.bodyParser() 
+  app.use express.bodyParser()
 
   #checks request.body for HTTP method overrides
-  app.use express.methodOverride() 
+  app.use express.methodOverride()
 
   #perform route lookup based on url and HTTP method
-  app.use app.router 
+  app.use app.router
 
   #Where to serve static content
-  app.use express.static path.join application_root, 'site'  
+  app.use express.static path.join application_root, 'site'
 
   #Show all errors in development
   app.use express.errorHandler {dumpExceptions: true, showStack: true}
@@ -27,8 +27,8 @@ app.configure () ->
 
 #Start server
 port = 4040
-app.listen port, () -> 
-  console.log 'Express server listening on port %d in %s mode', port, app.settings.env 
+app.listen port, () ->
+  console.log 'Express server listening on port %d in %s mode', port, app.settings.env
 
 # Routes
 LIB_DIR = "./site/libraries"
@@ -46,19 +46,22 @@ app.get '/flashcard/decks', (request, response) ->
       catch e
         console.log "error encountered processing file #{filename} - ensure file is properly formatted JSON - skipping file"
         continue
-      
+
       deckProperties.push
         name: filename
         size: if contents.length then contents.length else 1
 
     response.send deckProperties
 
+app.get '/deck/*', (request, response) ->
+  response.sendfile(__dirname + '/site/index.html');
+
 #get all cards from the deck
-app.get '/flashcard/deck/:name', (request, response) -> 
+app.get '/flashcard/deck/:name', (request, response) ->
   lib = require "#{LIB_DIR}/#{request.params.name}"
   response.send lib
 
 #get a single card from the deck
-app.get '/flashcard/deck/:name/:id', (request, response) -> 
+app.get '/flashcard/deck/:name/:id', (request, response) ->
   lib = require "#{LIB_DIR}/#{request.params.name}"
   response.send lib[request.params.id]
