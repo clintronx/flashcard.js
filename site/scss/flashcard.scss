@@ -17,7 +17,6 @@ $ratio: 0.6;
 }
 
 #card {
-  background-color: lighten(gray, 49%);
   border: 1px solid gray;
   margin: 1em;
   padding: 1em;
@@ -29,20 +28,36 @@ $ratio: 0.6;
   -o-border-radius: 1em;
   border-radius: 1em;
 
-  -moz-transition:width 2s, height 2s, background-color 2s, -moz-transform 2s;
-  -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
-  -o-transition:width 2s, height 2s, background-color 2s, -o-transform 2s;
-  transition:width 2s, height 2s, background-color 2s, transform 2s;
+  -moz-transition:width .25s, height .25s, background-color .25s, -moz-transform .25s;
+  -webkit-transition:width .25s, height .25s, background-color .25s, -webkit-transform .25s;
+  -o-transition:width .25s, height .25s, background-color .25s, -o-transform .25s;
+  transition:width .25s, height .25s, background-color .25s, transform .25s;
 }
 
-#card[data-view = 'front'] {}
+#card[data-view = 'z-perspective'] {
+  -moz-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+
+  //IE
+  filter: flipH;
+}
+
+#card[data-view = 'front'] {
+  background-color: white;
+}
 
 #card[data-view = 'back'] {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
+  background-color: darken(white, 4%);
+
+  -moz-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+
+  //IE
+  filter: flipH;
 }
 
 .small {

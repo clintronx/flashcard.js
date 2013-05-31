@@ -11,9 +11,9 @@ class app.Router extends Backbone.Router
     ""
 
   initialize: ->
-    @decksProperties = new app.collection.Decks()
     $('body').empty()
     $('body').append H.compile '#scaffolding'
+    @decksProperties = new app.collection.Decks()
     decksView = new app.view.DecksView collection: @decksProperties
     $('.navbar').append decksView.render().el
 
@@ -30,6 +30,5 @@ class app.Router extends Backbone.Router
             model: card
             attributes:
               "data-view": card.get 'viewing'
-
-          cardView = new app.view.CardView options
+          cardView = new app.view.CardGridView options
           $('.container').append cardView.render().el
