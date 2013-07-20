@@ -17,9 +17,9 @@ class app.view.CardGridView extends Backbone.View
     @model.on 'change', @render, @
 
   _renderText: ->
-    pTag = $ '<p>'
-    pTag.addClass("text-center") if @model.get('viewing') is 'front'
-    @$el.append pTag.append @model.getText()
+    div = $ '<div>'
+    div.addClass("text-center") if @model.get('viewing') is 'front'
+    @$el.append div.append @model.getText()
 
   toggleCard: ->
     @_handleCardFlip()

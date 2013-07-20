@@ -1,14 +1,20 @@
+$height: 200px;
+$ratio: 0.6;
+
 body {
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0;
   margin: 1em;
+  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
 
 select.decks {
   display: block;
 }
 
-$height: 200px;
-$ratio: 0.6;
 
 .deck {
   position: relative;
@@ -16,11 +22,20 @@ $ratio: 0.6;
   width: 100%;
 }
 
+.container {
+  position: absolute;
+  overflow: auto;
+  padding: 1em;
+  margin: 1em;
+  top: 30px;
+}
+
 #card {
   border: 1px solid gray;
   margin: 1em;
   padding: 1em;
   display: inline-block;
+  overflow: hidden;
   vertical-align: top;
 
   -webkit-border-radius: 1em;
@@ -28,8 +43,8 @@ $ratio: 0.6;
   -o-border-radius: 1em;
   border-radius: 1em;
 
-  -moz-transition:width .25s, height .25s, background-color .25s, -moz-transform .25s;
   -webkit-transition:width .25s, height .25s, background-color .25s, -webkit-transform .25s;
+  -moz-transition:width .25s, height .25s, background-color .25s, -moz-transform .25s;
   -o-transition:width .25s, height .25s, background-color .25s, -o-transform .25s;
   transition:width .25s, height .25s, background-color .25s, transform .25s;
 }
@@ -60,10 +75,21 @@ $ratio: 0.6;
   filter: flipH;
 }
 
+#player > #card {
+  width: 900px;
+  height: 700px;
+  background-color: #eee;
+  background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
+  background: -moz-linear-gradient(bottom, #bbd, #fff);
+  background: linear-gradient(bottom, #bbd, #fff);
+  -webkit-transition: margin 0.25s ease-in-out;
+  -moz-transition: margin 0.25s ease-in-out;
+  -o-transition: margin-left 0.25s ease-in-out;
+  transition: margin 0.25s ease-in-out;
+}
+
+
 .small {
   height: $height;
   width: ($height * $ratio) + $height;
 }
-
-
-

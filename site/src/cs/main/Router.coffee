@@ -2,13 +2,9 @@ class app.Router extends Backbone.Router
 
   routes:
     "": "index"
-
     "deck/:name": "deck"
-
-    "decks" : "decks"
-
-  events:
-    ""
+    "decks": "decks"
+    "player/:name": "player"
 
   initialize: ->
     $('body').empty()
@@ -32,3 +28,9 @@ class app.Router extends Backbone.Router
               "data-view": card.get 'viewing'
           cardView = new app.view.CardGridView options
           $('.container').append cardView.render().el
+
+  player: (name) ->
+    $('.container').empty()
+    cards = new app.collection.Cards [], name: name
+    @playerView = new app.view.PlayerView collection: cards
+    $('.container').append @playerView.render().el
