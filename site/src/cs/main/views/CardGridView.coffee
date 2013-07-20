@@ -14,6 +14,7 @@ class app.view.CardGridView extends Backbone.View
     @
 
   initialize: ->
+    $(document).on 'keydown', @keydown
     @model.on 'change', @render, @
 
   _renderText: ->
@@ -21,11 +22,18 @@ class app.view.CardGridView extends Backbone.View
     div.addClass("text-center") if @model.get('viewing') is 'front'
     @$el.append div.append @model.getText()
 
-  toggleCard: ->
+  toggleCard: =>
     @_handleCardFlip()
     @render()
 
-  _handleCardFlip: ->
+  keydown: (event) =>
+    @_handleKeydown() if event.which is 32 #space
+
+  _handleKeydown: (event) =>
+    @toggleCard()
+    return false
+
+  _handleCardFlip: =>
     @$el.attr 'data-view', 'z-perspective'
     setTimeout =>
       @model.toggleCard()
