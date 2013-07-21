@@ -11,23 +11,29 @@ body {
   font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
 
-select.decks {
-  display: block;
-}
-
-
-.deck {
-  position: relative;
-  height: $height;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 1em auto;
+  hight: $height;
   width: 100%;
+  text-align: center;
+  z-index: 1000;
+
+  select, .btn {
+    margin: 0px;
+  }
 }
 
-.container {
-  position: absolute;
-  overflow: auto;
+.flashcardjs {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 1em;
-  margin: 1em;
-  top: 30px;
+  margin: 1em auto;
+  top: 0;
+  text-align: center;
 }
 
 #card {
@@ -76,8 +82,8 @@ select.decks {
 }
 
 #player > #card {
-  width: 900px;
-  height: 700px;
+  width: 800px;
+  height: 600px;
   background-color: #eee;
   background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
   background: -moz-linear-gradient(bottom, #bbd, #fff);

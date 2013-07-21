@@ -7,16 +7,14 @@ class app.Router extends Backbone.Router
     "player/:name": "player"
 
   initialize: ->
-    $('body').empty()
     $('body').append H.compile '#scaffolding'
     @decksProperties = new app.collection.Decks()
-    decksView = new app.view.DecksView collection: @decksProperties
-    $('.navbar').append decksView.render().el
+    navbar = new app.view.NavbarView el: $('.navbar'), collection: @decksProperties
+    navbar.render().el
 
   index: ->
-
   deck: (name) ->
-    $('.container').empty()
+    $('.flashcardjs').empty()
     cards = new app.collection.Cards [], name: name
     cards.fetch
       reset: true
@@ -27,10 +25,10 @@ class app.Router extends Backbone.Router
             attributes:
               "data-view": card.get 'viewing'
           cardView = new app.view.CardGridView options
-          $('.container').append cardView.render().el
+          $('.flashcardjs').append cardView.render().el
 
   player: (name) ->
-    $('.container').empty()
+    $('.flashcardjs').empty()
     cards = new app.collection.Cards [], name: name
     @playerView = new app.view.PlayerView collection: cards
-    $('.container').append @playerView.render().el
+    $('.flashcardjs').append @playerView.render().el

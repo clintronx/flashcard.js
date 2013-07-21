@@ -5,7 +5,6 @@
     <meta charset="utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.css" >
-    <link rel="stylesheet" href="/css/bootstrap-responsive.css">
     <link rel="stylesheet" href="/css/flashcard.css" >
     <script src="/lib/jquery.v1.9.1.js"></script>
     <script src="/lib/json2.js"></script>
@@ -21,16 +20,20 @@
     <script src="/src/js/main/views/PlayerView.js"></script>
     <script src="/src/js/main/views/CardGridView.js"></script>
     <script src="/src/js/main/views/DecksView.js"></script>
+    <script src="/src/js/main/views/NavbarView.js"></script>
     <script src="/src/js/main/Router.js"></script>
     <script src="/src/js/main/utils/TemplateEngine.js"></script>
     <script id="scaffolding" type="text/x-handlebars-template">
         <div class="navbar"></div>
-        <div class="container"></div>
+        <div class="flashcardjs"></div>
     </script>
     <script id="decksOptions" type="text/x-handlebars-template">
         {{#each decks}}
         <option value="{{name}}">{{name}}</option>
         {{/each}}
+    </script>
+    <script id="playnowTemplate" type="text/x-handlebars-template">
+        <a id="playnow" class="btn btn-success">Play This Deck</a>
     </script>
     <script>
       $(function() {

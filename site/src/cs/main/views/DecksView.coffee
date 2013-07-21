@@ -9,7 +9,6 @@ class app.view.DecksView extends Backbone.View
 
   initialize: (options) ->
     @render()
-
     @collection.fetch reset: true
     @listenTo @collection, 'reset', this.render
 
@@ -18,5 +17,6 @@ class app.view.DecksView extends Backbone.View
     @$el.append H.compile('#decksOptions') decks: @collection.toJSON()
     @
 
-  _changeSelected: () ->
-    app.router.navigate("deck/#{$(@el).val()}", trigger: true); 
+  _changeSelected: (event) ->
+    deck = event.currentTarget.value
+    app.router.navigate("deck/#{deck}", trigger: true);
