@@ -2,11 +2,15 @@ class app.view.PlayerView extends Backbone.View
 
   id: 'player'
 
-  initialize: () ->
+  initialize: ->
     $(document).on 'keydown', @advance
     @collection.fetch reset: true
     @current = 0
     @collection.on 'reset', @render
+
+  remove: ->
+    super
+    $(document).off 'keydown', @advance
 
   render: =>
     @$el.empty()
@@ -16,8 +20,9 @@ class app.view.PlayerView extends Backbone.View
         model: card
         attributes:
           "data-view": card.get 'viewing'
-      cardView = new app.view.CardGridView options
-      @$el.append cardView.render().el
+      @cardView?.remove()
+      @cardView = new app.view.CardGridView options
+      @$el.append @cardView.render().el
     @
 
   _incrementCard: ->

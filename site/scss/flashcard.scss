@@ -1,5 +1,11 @@
 $height: 200px;
 $ratio: 0.6;
+$front: white;
+$back:  darken(white, 4%);
+$playerFrontStart: #bbd;
+$playerFrontStop: #fff;
+$playerBackStart: #fff;
+$playerBackStop: #bbd;
 
 body {
   position: absolute;
@@ -66,11 +72,11 @@ body {
 }
 
 #card[data-view = 'front'] {
-  background-color: white;
+  background-color: $front;
 }
 
 #card[data-view = 'back'] {
-  background-color: darken(white, 4%);
+  background-color: $back;
 
   -moz-transform: scaleX(1);
   -o-transform: scaleX(1);
@@ -84,10 +90,18 @@ body {
 #player > #card {
   width: 800px;
   height: 600px;
-  background-color: #eee;
-  background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
-  background: -moz-linear-gradient(bottom, #bbd, #fff);
-  background: linear-gradient(bottom, #bbd, #fff);
+}
+
+#player > #card[data-view = 'front'] {
+  background: -webkit-gradient(linear, left bottom, left top, from($playerFrontStart), to($playerFrontStop));
+  background: -moz-linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
+  background: linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
+}
+
+#player > #card[data-view = 'back'] {
+  background: -webkit-gradient(linear, left bottom, left top, from($playerBackStart), to($playerBackStop));
+  background: -moz-linear-gradient(bottom, $playerBackStart, $playerBackStop);
+  background: linear-gradient(bottom, $playerBackStart, $playerBackStop);
 }
 
 .small {

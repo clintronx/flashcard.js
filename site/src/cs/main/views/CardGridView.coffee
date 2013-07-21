@@ -14,8 +14,12 @@ class app.view.CardGridView extends Backbone.View
     @
 
   initialize: ->
-    $(document).on 'keydown', @keydown
-    @model.on 'change', @render, @
+    $(document).on 'keydown', @handleKeydownEvents
+    @listenTo @model, 'change', @render
+
+  remove: ->
+    super
+    $(document).off 'keydown', @handleKeydownEvents
 
   _renderText: ->
     div = $ '<div>'
@@ -26,7 +30,7 @@ class app.view.CardGridView extends Backbone.View
     @_handleCardFlip()
     @render()
 
-  keydown: (event) =>
+  handleKeydownEvents: (event) =>
     switch event.which
       when 32 #space
         @toggleCard()

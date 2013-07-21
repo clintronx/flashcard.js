@@ -30,5 +30,6 @@ class app.Router extends Backbone.Router
   player: (name) ->
     $('.flashcardjs').empty()
     cards = new app.collection.Cards [], name: name
+    @playerView?.remove()
     @playerView = new app.view.PlayerView collection: cards
     $('.flashcardjs').append @playerView.render().el
