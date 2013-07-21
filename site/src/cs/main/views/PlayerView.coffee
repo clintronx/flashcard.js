@@ -29,9 +29,12 @@ class app.view.PlayerView extends Backbone.View
     @current = @collection.length - 1 if @current <= 0
 
   advance: (event) =>
-    @_handleAdvance @_decrementCard() if event.which is 37 #left
-    @_handleAdvance @_incrementCard() if event.which is 39 #right
-
-  _handleAdvance:  =>
-    @render()
-    return false
+    switch event.which
+      when 37 #left
+        @_decrementCard()
+        @render()
+        return false
+      when 39 #right
+        @_incrementCard()
+        @render()
+        return false

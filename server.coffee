@@ -56,6 +56,9 @@ app.get '/flashcard/decks', (request, response) ->
 app.get '/deck/*', (request, response) ->
   response.sendfile(__dirname + '/site/index.html');
 
+app.get '/player/*', (request, response) ->
+  response.sendfile(__dirname + '/site/index.html');
+
 #get all cards from the deck
 app.get '/flashcard/deck/:name', (request, response) ->
   lib = require "#{LIB_DIR}/#{request.params.name}"

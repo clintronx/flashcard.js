@@ -27,11 +27,10 @@ class app.view.CardGridView extends Backbone.View
     @render()
 
   keydown: (event) =>
-    @_handleKeydown() if event.which is 32 #space
-
-  _handleKeydown: (event) =>
-    @toggleCard()
-    return false
+    switch event.which
+      when 32 #space
+        @toggleCard()
+        return false
 
   _handleCardFlip: =>
     @$el.attr 'data-view', 'z-perspective'
