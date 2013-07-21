@@ -19,4 +19,4 @@ class app.view.DecksView extends Backbone.View
 
   _changeSelected: (event) ->
     deck = event.currentTarget.value
-    app.router.navigate("deck/#{deck}", trigger: true);
+    app.router.navigate "deck/#{deck}", trigger: true
