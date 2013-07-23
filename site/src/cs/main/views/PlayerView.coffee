@@ -14,14 +14,13 @@ class app.view.PlayerView extends Backbone.View
 
   render: =>
     @$el.empty()
-    card = @collection.at @current
-    if card
+    @card = @collection.at @current
+    if @card
       options =
-        model: card
+        model: @card
         attributes:
-          "data-view": card.get 'viewing'
-      @cardView?.remove()
-      @cardView = new app.view.CardGridView options
+          "data-view": @card.get 'viewing'
+      @cardView = new app.view.CardView options
       @$el.append @cardView.render().el
     @
 
@@ -35,6 +34,9 @@ class app.view.PlayerView extends Backbone.View
 
   advance: (event) =>
     switch event.which
+      when 32 #space
+        @cardView.toggle()
+        return false
       when 37 #left
         @_decrementCard()
         @render()

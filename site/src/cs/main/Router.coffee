@@ -16,20 +16,11 @@ class app.Router extends Backbone.Router
   deck: (name) ->
     $('.flashcardjs').empty()
     cards = new app.collection.Cards [], name: name
-    cards.fetch
-      reset: true
-      success: (collection, response, options) =>
-        collection.each (card) =>
-          options =
-            model: card
-            attributes:
-              "data-view": card.get 'viewing'
-          cardView = new app.view.CardGridView options
-          $('.flashcardjs').append cardView.render().el
+    gridView = new app.view.GridView collection: cards
+    $('.flashcardjs').append gridView.render().el
 
   player: (name) ->
     $('.flashcardjs').empty()
     cards = new app.collection.Cards [], name: name
-    @playerView?.remove()
-    @playerView = new app.view.PlayerView collection: cards
-    $('.flashcardjs').append @playerView.render().el
+    playerView = new app.view.PlayerView collection: cards
+    $('.flashcardjs').append playerView.render().el

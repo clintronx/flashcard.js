@@ -9,5 +9,9 @@ class app.collection.Cards extends Backbone.Collection
   initialize: (models, options) ->
     _.extend @, options
 
-  model: (attributes, options) -> 
+  model: (attributes, options) ->
     new app.model.Card attributes, options
+
+  toggle: =>
+    @each (card) =>
+      card.toggle()

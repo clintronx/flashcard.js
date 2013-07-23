@@ -1,4 +1,4 @@
-class app.view.CardGridView extends Backbone.View
+class app.view.CardView extends Backbone.View
 
   id: 'card'
   className: 'small'
@@ -6,7 +6,7 @@ class app.view.CardGridView extends Backbone.View
     "data-view": "default"
 
   events:
-    "click": "toggleCard"
+    "click": "toggle"
 
   render: ->
     @$el.empty()
@@ -14,31 +14,20 @@ class app.view.CardGridView extends Backbone.View
     @
 
   initialize: ->
-    $(document).on 'keydown', @handleKeydownEvents
     @listenTo @model, 'change', @render
-
-  remove: ->
-    super
-    $(document).off 'keydown', @handleKeydownEvents
 
   _renderText: ->
     div = $ '<div>'
     div.addClass("text-center") if @model.get('viewing') is 'front'
     @$el.append div.append @model.getText()
 
-  toggleCard: =>
+  toggle: =>
     @_handleCardFlip()
     @render()
-
-  handleKeydownEvents: (event) =>
-    switch event.which
-      when 32 #space
-        @toggleCard()
-        return false
 
   _handleCardFlip: =>
     @$el.attr 'data-view', 'z-perspective'
     setTimeout =>
-      @model.toggleCard()
+      @model.toggle()
       @$el.attr 'data-view', @model.get 'viewing'
     , 250
