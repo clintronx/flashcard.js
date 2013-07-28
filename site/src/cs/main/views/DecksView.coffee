@@ -1,22 +1,27 @@
-class app.view.DecksView extends Backbone.View
+define [
+  "backbone"
+  "hbs!../../../templates/DeckOptions"
+], (Backbone, template) ->
 
-  tagName: "select"
-  id: "input"
-  className: "decks span5"
+  class DecksView extends Backbone.View
 
-  events:
-    "change": "_changeSelected"
+    tagName: "select"
+    id: "input"
+    className: "decks span5"
 
-  initialize: (options) ->
-    @render()
-    @collection.fetch reset: true
-    @listenTo @collection, 'reset', this.render
+    events:
+      "change": "_changeSelected"
 
-  render: ->
-    @$el.empty()
-    @$el.append H.compile('#decksOptions') decks: @collection.toJSON()
-    @
+    initialize: (options) ->
+      @render()
+      @collection.fetch reset: true
+      @listenTo @collection, 'reset', this.render
 
-  _changeSelected: (event) ->
-    deck = event.currentTarget.value
-    app.router.navigate "deck/#{deck}", trigger: true
+    render: ->
+      @$el.empty()
+      @$el.append template decks: @collection.toJSON()
+      @
+
+    _changeSelected: (event) ->
+      deck = event.currentTarget.value
+      app.router.navigate "deck/#{deck}", trigger: true

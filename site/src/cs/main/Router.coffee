@@ -1,26 +1,38 @@
-class app.Router extends Backbone.Router
+define [
+  "jquery"
+  "backbone"
+  "Decks"
+  "Cards"
+  "NavbarView"
+  "GridView"
+  "PlayerView"
+  "hbs!../../../templates/Scaffolding"
+], ($, Backbone, Decks, Cards, NavbarView, GridView, PlayerView, template) ->
 
-  routes:
-    "": "index"
-    "deck/:name": "deck"
-    "decks": "decks"
-    "player/:name": "player"
+  class Router extends Backbone.Router
 
-  initialize: ->
-    $('body').append H.compile '#scaffolding'
-    @decksProperties = new app.collection.Decks()
-    navbar = new app.view.NavbarView el: $('.navbar'), collection: @decksProperties
-    navbar.render().el
+    routes:
+      "": "index"
+      "deck/:name": "deck"
+      "decks": "decks"
+      "player/:name": "player"
 
-  index: ->
-  deck: (name) ->
-    $('.flashcardjs').empty()
-    cards = new app.collection.Cards [], name: name
-    gridView = new app.view.GridView collection: cards
-    $('.flashcardjs').append gridView.render().el
+    initialize: ->
+      $('body').append template
+      @decksProperties = new Decks()
+      navbar = new NavbarView el: $('.navbar'), collection: @decksProperties
+      navbar.render().el
 
-  player: (name) ->
-    $('.flashcardjs').empty()
-    cards = new app.collection.Cards [], name: name
-    playerView = new app.view.PlayerView collection: cards
-    $('.flashcardjs').append playerView.render().el
+    index: ->
+
+    deck: (name) ->
+      $('.flashcardjs').empty()
+      cards = new Cards [], name: name
+      gridView = new GridView collection: cards
+      $('.flashcardjs').append gridView.render().el
+
+    player: (name) ->
+      $('.flashcardjs').empty()
+      cards = new Cards [], name: name
+      playerView = new PlayerView collection: cards
+      $('.flashcardjs').append playerView.render().el

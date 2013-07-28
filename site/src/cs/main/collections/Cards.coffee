@@ -1,17 +1,22 @@
-class app.collection.Cards extends Backbone.Collection
+define [
+  "lodash"
+  "backbone"
+  "Card"
+], (_, Backbone, Card) ->
 
-  defaults:
-    name: ""
+  class Cards extends Backbone.Collection
 
-  url: ->  
-    "/flashcard/deck/#{@name}"
+    defaults:
+      name: ""
 
-  initialize: (models, options) ->
-    _.extend @, options
+    url: ->  
+      "/flashcard/deck/#{@name}"
 
-  model: (attributes, options) ->
-    new app.model.Card attributes, options
+    model: Card
 
-  toggle: =>
-    @each (card) =>
-      card.toggle()
+    initialize: (models, options) ->
+      _.extend @, options
+
+    toggle: =>
+      @each (card) =>
+        card.toggle()

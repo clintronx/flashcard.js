@@ -1,33 +1,39 @@
-class app.view.GridView extends Backbone.View
+define [
+  "jquery"
+  "backbone"
+  "CardView"
+], ($, Backbone, CardView) ->
 
-  initialize: ->
-    @cardViews = []
-    @_registerEventHandlers()
+  class GridView extends Backbone.View
 
-  _registerEventHandlers: ->
-    $(document).on 'keydown', @handleKeydownEvents
+    initialize: ->
+      @cardViews = []
+      @_registerEventHandlers()
 
-  render: ->
-    @collection.fetch
-      reset: true
-      success: (collection, response, options) =>
-        collection.each (card) =>
-          options =
-            model: card
-            attributes:
-              "data-view": card.get 'viewing'
-          cardView = new app.view.CardView options
-          @cardViews.push cardView
-          @$el.append cardView.render().el
-    @
+    _registerEventHandlers: ->
+      $(document).on 'keydown', @handleKeydownEvents
 
-  remove: ->
-    super
-    $(document).off 'keydown', @handleKeydownEvents
+    render: ->
+      @collection.fetch
+        reset: true
+        success: (collection, response, options) =>
+          collection.each (card) =>
+            options =
+              model: card
+              attributes:
+                "data-view": card.get 'viewing'
+            cardView = new CardView options
+            @cardViews.push cardView
+            @$el.append cardView.render().el
+      @
 
-  handleKeydownEvents: (event) =>
-    switch event.which
-      when 32 #space
-        for view in @cardViews
-          view.toggle()
-        return false
+    remove: ->
+      super
+      $(document).off 'keydown', @handleKeydownEvents
+
+    handleKeydownEvents: (event) =>
+      switch event.which
+        when 32 #space
+          for view in @cardViews
+            view.toggle()
+          return false

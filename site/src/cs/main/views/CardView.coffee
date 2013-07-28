@@ -1,33 +1,38 @@
-class app.view.CardView extends Backbone.View
+define [
+  "jquery"
+  "backbone"
+], ($, Backbone) ->
 
-  id: 'card'
-  className: 'small'
-  attributes:
-    "data-view": "default"
+  class CardView extends Backbone.View
 
-  events:
-    "click": "toggle"
+    id: 'card'
+    className: 'small'
+    attributes:
+      "data-view": "default"
 
-  render: ->
-    @$el.empty()
-    @_renderText()
-    @
+    events:
+      "click": "toggle"
 
-  initialize: ->
-    @listenTo @model, 'change', @render
+    render: ->
+      @$el.empty()
+      @_renderText()
+      @
 
-  _renderText: ->
-    div = $ '<div>'
-    div.addClass("text-center") if @model.get('viewing') is 'front'
-    @$el.append div.append @model.getText()
+    initialize: ->
+      @listenTo @model, 'change', @render
 
-  toggle: =>
-    @_handleCardFlip()
-    @render()
+    _renderText: ->
+      div = $ '<div>'
+      div.addClass("text-center") if @model.get('viewing') is 'front'
+      @$el.append div.append @model.getText()
 
-  _handleCardFlip: =>
-    @$el.attr 'data-view', 'z-perspective'
-    setTimeout =>
-      @model.toggle()
-      @$el.attr 'data-view', @model.get 'viewing'
-    , 250
+    toggle: =>
+      @_handleCardFlip()
+      @render()
+
+    _handleCardFlip: =>
+      @$el.attr 'data-view', 'z-perspective'
+      setTimeout =>
+        @model.toggle()
+        @$el.attr 'data-view', @model.get 'viewing'
+      , 250

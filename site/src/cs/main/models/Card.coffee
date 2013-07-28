@@ -1,15 +1,19 @@
-class app.model.Card extends Backbone.Model
+define [
+  "backbone"
+], (Backbone) ->
 
-  defaults:
-    name: ""
-    front: 'front',  #content on front of card
-    back: 'back',    #content on back of card
-    viewing: 'front' #current side user is viewing: front|back
+  class Card extends Backbone.Model
 
-  toggle: =>
-    switch @.get 'viewing'
-      when 'front' then @.set viewing: 'back'
-      when 'back' then @.set viewing: 'front'
+    defaults:
+      name: ""
+      front: 'front',  #content on front of card
+      back: 'back',    #content on back of card
+      viewing: 'front' #current side user is viewing: front|back
 
-  getText: =>
-    return @.get @.get('viewing')
+    toggle: =>
+      switch @.get 'viewing'
+        when 'front' then @.set viewing: 'back'
+        when 'back' then @.set viewing: 'front'
+
+    getText: =>
+      return @.get @.get('viewing')

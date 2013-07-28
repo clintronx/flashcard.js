@@ -1,15 +1,21 @@
-class app.view.NavbarView extends Backbone.View
+define [
+  "backbone"
+  "DecksView"
+  "hbs!../../../templates/PlayNow"
+], (Backbone, DecksView, template) ->
 
-  events:
-    'click #playnow': 'startPlayer'
+  class NavbarView extends Backbone.View
 
-  initialize: ->
-    @decksView = new app.view.DecksView collection: @collection
+    events:
+      'click #playnow': 'startPlayer'
 
-  render: ->
-    @$el.append @decksView.render().el
-    @$el.append H.compile '#playnowTemplate'
-    @
+    initialize: ->
+      @decksView = new DecksView collection: @collection
 
-  startPlayer: =>
-    app.router.navigate "player/#{$('select').val()}", trigger: true
+    render: ->
+      @$el.append @decksView.render().el
+      @$el.append template
+      @
+
+    startPlayer: =>
+      window.app.router.navigate "player/#{$('select').val()}", trigger: true

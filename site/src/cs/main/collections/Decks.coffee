@@ -1,8 +1,15 @@
-class app.collection.Decks extends Backbone.Collection
+define [
+  "lodash"
+  "backbone"
+  "Deck"
+], (_, Backbone, Deck) ->
 
-  url: () -> "/flashcard/decks"
+  class Decks extends Backbone.Collection
 
-  initialize: (options) ->
-    _.extend @, options
+    url: -> "/flashcard/decks"
 
-  model: (attributes, options) -> new app.model.Deck attributes, options
+    model: Deck
+
+    initialize: (options) ->
+      _.extend @, options
+

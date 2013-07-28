@@ -1,10 +1,15 @@
-class app.model.Deck extends Backbone.Model
+define [
+  "lodash"
+  "backbone"
+], (_, Backbone) ->
 
-  defaults:
-    name: ""
-    size: "0"
-    starred: []
-    current: 0
+  class Deck extends Backbone.Model
 
-  initialize: (models, options) ->
-    _.extend @, models, options
+    defaults:
+      name: ""
+      size: "0"
+      starred: []
+      current: 0
+
+    initialize: (models, options) ->
+      _.extend @, models, options
