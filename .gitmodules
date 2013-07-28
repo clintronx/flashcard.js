@@ -1,0 +1,3 @@
+[submodule "site/libraries"]
+	path = site/libraries
+	url = https://github.com/clintronx/flashcard.libraries.git

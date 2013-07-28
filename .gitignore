@@ -4,7 +4,6 @@
 *.sublime-project
 
 node_modules/
-site/libraries/
 
 site/src/js/main
 site/src/js/test

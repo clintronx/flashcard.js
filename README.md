@@ -1,6 +1,6 @@
 flashcard.js
 ============
 
-Simple HTML5 flashcard player - libraries are JSON formatted and share-able. 
+Simple HTML5 flashcard player - libraries are JSON formatted and share-able.
 
-[DEMO](http://htmlpreview.github.com/?https://github.com/clintronx/flashcard.js/blob/master/index.html)
+[DEMO](http://flashcardjs.herokuapp.com/)
