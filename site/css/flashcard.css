@@ -1,0 +1,89 @@
+body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  margin: 1em;
+  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 1em auto;
+  hight: 200px;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+.navbar select, .navbar .btn {
+  margin: 0px;
+}
+
+.flashcardjs {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1em;
+  margin: 1em auto;
+  top: 0;
+  text-align: center;
+}
+
+#card {
+  border: 1px solid gray;
+  margin: 1em;
+  padding: 1em;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  text-align: left;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  border-radius: 1em;
+  -webkit-transition: width .25s, height .25s, background-color .25s, -webkit-transform .25s;
+  -moz-transition: width .25s, height .25s, background-color .25s, -moz-transform .25s;
+  -o-transition: width .25s, height .25s, background-color .25s, -o-transform .25s;
+  transition: width .25s, height .25s, background-color .25s, transform .25s;
+}
+
+#card[data-view='z-perspective'] {
+  -moz-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  filter: flipH;
+}
+
+#card[data-view='front'] {
+  background-color: white;
+}
+
+#card[data-view='back'] {
+  background-color: whitesmoke;
+}
+
+#player > #card {
+  width: 800px;
+  height: 600px;
+}
+
+#player > #card[data-view='front'] {
+  background: -webkit-gradient(linear, left bottom, left top, from(#bbbbdd), to(white));
+  background: -moz-linear-gradient(bottom, #bbbbdd, white);
+  background: linear-gradient(bottom, #bbbbdd, white);
+}
+
+#player > #card[data-view='back'] {
+  background: -webkit-gradient(linear, left bottom, left top, from(white), to(#bbbbdd));
+  background: -moz-linear-gradient(bottom, white, #bbbbdd);
+  background: linear-gradient(bottom, white, #bbbbdd);
+}
+
+.small {
+  height: 200px;
+  width: 320px;
+}
