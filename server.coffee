@@ -26,7 +26,7 @@ app.configure () ->
 
 
 #Start server
-port = 4040
+port = process.env.PORT || 4040
 app.listen port, () ->
   console.log 'Express server listening on port %d in %s mode', port, app.settings.env
 
