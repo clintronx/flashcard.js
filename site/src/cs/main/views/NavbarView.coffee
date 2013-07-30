@@ -17,5 +17,9 @@ define [
       @$el.append template
       @
 
+    setSelected: (name) ->
+      $('select').val name
+      $('select').change() unless name
+
     startPlayer: =>
       window.app.router.navigate "player/#{$('select').val()}", trigger: true

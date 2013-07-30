@@ -9,7 +9,3 @@ define [
     url: -> "/flashcard/decks"
 
     model: Deck
-
-    initialize: (options) ->
-      _.extend @, options
-

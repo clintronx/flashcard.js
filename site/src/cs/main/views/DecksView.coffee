@@ -14,8 +14,7 @@ define [
 
     initialize: (options) ->
       @render()
-      @collection.fetch reset: true
-      @listenTo @collection, 'reset', this.render
+      @listenTo @collection, 'reset', @render
 
     render: ->
       @$el.empty()
@@ -23,5 +22,7 @@ define [
       @
 
     _changeSelected: (event) ->
-      deck = event.currentTarget.value
-      app.router.navigate "deck/#{deck}", trigger: true
+      name = event.currentTarget.value
+      return unless name
+      @$el.val name
+      app?.router.navigate "deck/#{name}", trigger: true

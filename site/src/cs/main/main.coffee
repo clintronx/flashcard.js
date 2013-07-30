@@ -45,4 +45,3 @@ require [
     window.app =
       version: "0.1.0"
       router: new Router()
-    Backbone.history.start pushState: true

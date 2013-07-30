@@ -12,27 +12,30 @@ define [
   class Router extends Backbone.Router
 
     routes:
-      "": "index"
       "deck/:name": "deck"
       "decks": "decks"
       "player/:name": "player"
 
     initialize: ->
       $('body').append template
-      @decksProperties = new Decks()
-      navbar = new NavbarView el: $('.navbar'), collection: @decksProperties
-      navbar.render().el
+      @decks = new Decks()
+      @decks.fetch
+        success: =>
+          Backbone.history.start pushState: true
+          @navbar = new NavbarView el: $('.navbar'), collection: @decks
+          @navbar.render()
+          @navbar.setSelected @currentDeck
 
-    index: ->
-
-    deck: (name) ->
-      $('.flashcardjs').empty()
-      cards = new Cards [], name: name
-      gridView = new GridView collection: cards
+    deck: (@currentDeck) ->
+      @_prepareView()
+      gridView = new GridView collection: @cards
       $('.flashcardjs').append gridView.render().el
 
-    player: (name) ->
-      $('.flashcardjs').empty()
-      cards = new Cards [], name: name
-      playerView = new PlayerView collection: cards
+    player: (@currentDeck) ->
+      @_prepareView()
+      playerView = new PlayerView collection: @cards
       $('.flashcardjs').append playerView.render().el
+
+    _prepareView: ->
+      $('.flashcardjs').empty()
+      @cards = new Cards [], name: @currentDeck
