@@ -12,6 +12,7 @@ define [
   class Router extends Backbone.Router
 
     routes:
+      "": "index"
       "deck/:name": "deck"
       "decks": "decks"
       "player/:name": "player"
@@ -23,6 +24,9 @@ define [
         success: =>
           @navbar = new NavbarView el: $('.navbar'), collection: @decks
           Backbone.history.start pushState: true
+
+    index: ->
+      @_renderNavbar()
 
     deck: (@currentDeck) ->
       @_prepareView()
@@ -36,7 +40,10 @@ define [
       $('.flashcardjs').append playerView.render().el
 
     _prepareView: ->
-      @navbar.render()
-      @navbar.setSelected @currentDeck
+      @_renderNavbar()
       $('.flashcardjs').empty()
       @cards = new Cards [], name: @currentDeck
+
+    _renderNavbar: ->
+      @navbar.render()
+      @navbar.setSelected @currentDeck
