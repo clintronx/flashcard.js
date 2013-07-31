@@ -10,10 +10,15 @@ define [
       'click #playnow': 'startPlayer'
 
     initialize: ->
-      @decksView = new DecksView collection: @collection
+      @listenTo @collection, 'reset', @render
 
-    render: ->
-      @$el.append @decksView.render().el
+    render: =>
+      @$el.empty()
+      decksView = new DecksView collection: @collection
+      @$el.append decksView.render().el
+      @
+
+    renderPlayNow: ->
       @$el.append template
       @
 

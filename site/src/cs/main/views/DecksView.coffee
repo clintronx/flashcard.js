@@ -12,8 +12,7 @@ define [
     events:
       "change": "_changeSelected"
 
-    initialize: (options) ->
-      @render()
+    initialize: ->
       @listenTo @collection, 'reset', @render
 
     render: ->

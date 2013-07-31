@@ -21,13 +21,12 @@ define [
       @decks = new Decks()
       @decks.fetch
         success: =>
-          Backbone.history.start pushState: true
           @navbar = new NavbarView el: $('.navbar'), collection: @decks
-          @navbar.render()
-          @navbar.setSelected @currentDeck
+          Backbone.history.start pushState: true
 
     deck: (@currentDeck) ->
       @_prepareView()
+      @navbar.renderPlayNow()
       gridView = new GridView collection: @cards
       $('.flashcardjs').append gridView.render().el
 
@@ -37,5 +36,7 @@ define [
       $('.flashcardjs').append playerView.render().el
 
     _prepareView: ->
+      @navbar.render()
+      @navbar.setSelected @currentDeck
       $('.flashcardjs').empty()
       @cards = new Cards [], name: @currentDeck
