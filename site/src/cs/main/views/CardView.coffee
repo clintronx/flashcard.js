@@ -26,6 +26,11 @@ define [
       div.addClass("text-center") if @model.get('viewing') is 'front'
       @$el.append div.append @model.getText()
 
+    enterScreenAnimation: ->
+      setTimeout =>
+        @$el.attr 'data-enterscreen', ''
+      , 20
+
     toggle: =>
       @_handleCardFlip()
       @render()
@@ -36,3 +41,8 @@ define [
         @model.toggle()
         @$el.attr 'data-view', @model.get 'viewing'
       , 250
+
+    advance: (direction) =>
+      console.log direction
+      @$el.attr 'data-advance', direction
+      @render()

@@ -26,8 +26,10 @@ define [
           model: @card
           attributes:
             "data-view": @card.get 'viewing'
+            "data-enterscreen": @enterScreen if @enterScreen
         @cardView = new CardView options
         @$el.append @cardView.render().el
+        @cardView.enterScreenAnimation()
       @
 
     _incrementCard: ->
@@ -45,9 +47,19 @@ define [
           return false
         when 37 #left
           @_decrementCard()
-          @render()
+          @advance = 'left'
+          @enterScreen = 'right'
+          @cardView.advance @advance
+          window.setTimeout @_handleAdvance, 230
           return false
         when 39 #right
           @_incrementCard()
-          @render()
+          @advance = 'right'
+          @enterScreen = 'left'
+          @cardView.advance @advance
+          window.setTimeout @_handleAdvance, 230
           return false
+
+    _handleAdvance: =>
+      @$el.empty()
+      @render()

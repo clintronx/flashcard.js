@@ -1,4 +1,6 @@
 $height: 200px;
+$cardPlayerWidth: 800px;
+$cardPlayerHeight: 600px;
 $ratio: 0.6;
 $front: white;
 $back:  darken(white, 4%);
@@ -80,9 +82,37 @@ body {
   background-color: $back;
 }
 
+#card[data-advance = 'left'] {
+  -moz-transform: translateX($cardPlayerWidth * -1);
+  -o-transform: translateX($cardPlayerWidth * -1);
+  -webkit-transform: translateX($cardPlayerWidth * -1);
+  transform: translateX($cardPlayerWidth * -1);
+}
+
+#card[data-advance = 'right'] {
+  -moz-transform: translateX($cardPlayerWidth);
+  -o-transform: translateX($cardPlayerWidth);
+  -webkit-transform: translateX($cardPlayerWidth);
+  transform: translateX($cardPlayerWidth);
+}
+
+#card[data-enterScreen = 'left'] {
+  -moz-transform: translateX($cardPlayerWidth * -1);
+  -o-transform: translateX($cardPlayerWidth * -1);
+  -webkit-transform: translateX($cardPlayerWidth * -1);
+  transform: translateX($cardPlayerWidth * -1);
+}
+
+#card[data-enterScreen = 'right'] {
+  -moz-transform: translateX($cardPlayerWidth);
+  -o-transform: translateX($cardPlayerWidth);
+  -webkit-transform: translateX($cardPlayerWidth);
+  transform: translateX($cardPlayerWidth);
+}
+
 #player > #card {
-  width: 800px;
-  height: 600px;
+  width: $cardPlayerWidth;
+  height: $cardPlayerHeight;
 }
 
 #player > #card[data-view = 'front'] {

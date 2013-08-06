@@ -66,6 +66,34 @@ body {
   background-color: whitesmoke;
 }
 
+#card[data-advance='left'] {
+  -moz-transform: translateX(-800px);
+  -o-transform: translateX(-800px);
+  -webkit-transform: translateX(-800px);
+  transform: translateX(-800px);
+}
+
+#card[data-advance='right'] {
+  -moz-transform: translateX(800px);
+  -o-transform: translateX(800px);
+  -webkit-transform: translateX(800px);
+  transform: translateX(800px);
+}
+
+#card[data-enterScreen='left'] {
+  -moz-transform: translateX(-800px);
+  -o-transform: translateX(-800px);
+  -webkit-transform: translateX(-800px);
+  transform: translateX(-800px);
+}
+
+#card[data-enterScreen='right'] {
+  -moz-transform: translateX(800px);
+  -o-transform: translateX(800px);
+  -webkit-transform: translateX(800px);
+  transform: translateX(800px);
+}
+
 #player > #card {
   width: 800px;
   height: 600px;
