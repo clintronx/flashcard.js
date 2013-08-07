@@ -1,0 +1,10 @@
+#git://github.com/pivotal/git_scripts.git
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  cw: Clint Ayres; clinton.ayres
+  hutch: Andrew Hutchings; andrew.hutchings
+email:
+  prefix:
+  domain: gmail.com
+
+

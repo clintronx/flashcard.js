@@ -21,6 +21,12 @@ body {
 .navbar select, .navbar .btn {
   margin: 0px;
 }
+.navbar .btn {
+  display: none;
+}
+.navbar.playnow .btn {
+  display: inline-block;
+}
 
 .flashcardjs {
   position: relative;
@@ -39,7 +45,6 @@ body {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  text-align: left;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   -o-border-radius: 1em;
@@ -49,7 +54,13 @@ body {
   -o-transition: width .25s, height .25s, background-color .25s, -o-transform .25s;
   transition: width .25s, height .25s, background-color .25s, transform .25s;
 }
-
+#card[data-view='front'] {
+  background-color: white;
+}
+#card[data-view='back'] {
+  background-color: whitesmoke;
+  text-align: left;
+}
 #card[data-view='z-perspective'] {
   -moz-transform: scaleX(0);
   -o-transform: scaleX(0);
@@ -57,36 +68,24 @@ body {
   transform: scaleX(0);
   filter: flipH;
 }
-
-#card[data-view='front'] {
-  background-color: white;
-}
-
-#card[data-view='back'] {
-  background-color: whitesmoke;
-}
-
 #card[data-advance='left'] {
   -moz-transform: translateX(-1600px);
   -o-transform: translateX(-1600px);
   -webkit-transform: translateX(-1600px);
   transform: translateX(-1600px);
 }
-
 #card[data-advance='right'] {
   -moz-transform: translateX(1600px);
   -o-transform: translateX(1600px);
   -webkit-transform: translateX(1600px);
   transform: translateX(1600px);
 }
-
 #card[data-enterScreen='left'] {
   -moz-transform: translateX(-1600px);
   -o-transform: translateX(-1600px);
   -webkit-transform: translateX(-1600px);
   transform: translateX(-1600px);
 }
-
 #card[data-enterScreen='right'] {
   -moz-transform: translateX(1600px);
   -o-transform: translateX(1600px);
@@ -98,13 +97,11 @@ body {
   width: 800px;
   height: 600px;
 }
-
 #player > #card[data-view='front'] {
   background: -webkit-gradient(linear, left bottom, left top, from(#bbbbdd), to(white));
   background: -moz-linear-gradient(bottom, #bbbbdd, white);
   background: linear-gradient(bottom, #bbbbdd, white);
 }
-
 #player > #card[data-view='back'] {
   background: -webkit-gradient(linear, left bottom, left top, from(white), to(#bbbbdd));
   background: -moz-linear-gradient(bottom, white, #bbbbdd);

@@ -32,6 +32,16 @@ body {
   select, .btn {
     margin: 0px;
   }
+
+  .btn {
+    display: none;
+  }
+
+  &.playnow {
+    .btn {
+      display: inline-block;
+    }
+  }
 }
 
 .flashcardjs {
@@ -51,7 +61,6 @@ body {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  text-align: left;
 
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
@@ -62,70 +71,74 @@ body {
   -moz-transition:width .25s, height .25s, background-color .25s, -moz-transform .25s;
   -o-transition:width .25s, height .25s, background-color .25s, -o-transform .25s;
   transition:width .25s, height .25s, background-color .25s, transform .25s;
+
+  &[data-view = 'front'] {
+    background-color: $front;
+  }
+
+  &[data-view = 'back'] {
+    background-color: $back;
+    text-align: left;
+  }
+
+  &[data-view = 'z-perspective'] {
+    -moz-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+
+    //IE
+    filter: flipH;
+  }
+
+  &[data-advance = 'left'] {
+    -moz-transform: translateX($cardPlayerWidth * -2);
+    -o-transform: translateX($cardPlayerWidth * -2);
+    -webkit-transform: translateX($cardPlayerWidth * -2);
+    transform: translateX($cardPlayerWidth * -2);
+  }
+
+  &[data-advance = 'right'] {
+    -moz-transform: translateX($cardPlayerWidth * 2);
+    -o-transform: translateX($cardPlayerWidth * 2);
+    -webkit-transform: translateX($cardPlayerWidth * 2);
+    transform: translateX($cardPlayerWidth * 2);
+  }
+
+  &[data-enterScreen = 'left'] {
+    -moz-transform: translateX($cardPlayerWidth * -2);
+    -o-transform: translateX($cardPlayerWidth * -2);
+    -webkit-transform: translateX($cardPlayerWidth * -2);
+    transform: translateX($cardPlayerWidth * -2);
+  }
+
+  &[data-enterScreen = 'right'] {
+    -moz-transform: translateX($cardPlayerWidth * 2);
+    -o-transform: translateX($cardPlayerWidth * 2);
+    -webkit-transform: translateX($cardPlayerWidth * 2);
+    transform: translateX($cardPlayerWidth * 2);
+  }
 }
 
-#card[data-view = 'z-perspective'] {
-  -moz-transform: scaleX(0);
-  -o-transform: scaleX(0);
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
 
-  //IE
-  filter: flipH;
-}
-
-#card[data-view = 'front'] {
-  background-color: $front;
-}
-
-#card[data-view = 'back'] {
-  background-color: $back;
-}
-
-#card[data-advance = 'left'] {
-  -moz-transform: translateX($cardPlayerWidth * -2);
-  -o-transform: translateX($cardPlayerWidth * -2);
-  -webkit-transform: translateX($cardPlayerWidth * -2);
-  transform: translateX($cardPlayerWidth * -2);
-}
-
-#card[data-advance = 'right'] {
-  -moz-transform: translateX($cardPlayerWidth * 2);
-  -o-transform: translateX($cardPlayerWidth * 2);
-  -webkit-transform: translateX($cardPlayerWidth * 2);
-  transform: translateX($cardPlayerWidth * 2);
-}
-
-#card[data-enterScreen = 'left'] {
-  -moz-transform: translateX($cardPlayerWidth * -2);
-  -o-transform: translateX($cardPlayerWidth * -2);
-  -webkit-transform: translateX($cardPlayerWidth * -2);
-  transform: translateX($cardPlayerWidth * -2);
-}
-
-#card[data-enterScreen = 'right'] {
-  -moz-transform: translateX($cardPlayerWidth * 2);
-  -o-transform: translateX($cardPlayerWidth * 2);
-  -webkit-transform: translateX($cardPlayerWidth * 2);
-  transform: translateX($cardPlayerWidth * 2);
-}
 
 #player > #card {
   width: $cardPlayerWidth;
   height: $cardPlayerHeight;
+
+  &[data-view = 'front'] {
+    background: -webkit-gradient(linear, left bottom, left top, from($playerFrontStart), to($playerFrontStop));
+    background: -moz-linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
+    background: linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
+  }
+
+  &[data-view = 'back'] {
+    background: -webkit-gradient(linear, left bottom, left top, from($playerBackStart), to($playerBackStop));
+    background: -moz-linear-gradient(bottom, $playerBackStart, $playerBackStop);
+    background: linear-gradient(bottom, $playerBackStart, $playerBackStop);
+  }
 }
 
-#player > #card[data-view = 'front'] {
-  background: -webkit-gradient(linear, left bottom, left top, from($playerFrontStart), to($playerFrontStop));
-  background: -moz-linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
-  background: linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
-}
-
-#player > #card[data-view = 'back'] {
-  background: -webkit-gradient(linear, left bottom, left top, from($playerBackStart), to($playerBackStop));
-  background: -moz-linear-gradient(bottom, $playerBackStart, $playerBackStop);
-  background: linear-gradient(bottom, $playerBackStart, $playerBackStop);
-}
 
 .small {
   height: $height;

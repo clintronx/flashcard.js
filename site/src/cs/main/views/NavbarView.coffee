@@ -16,8 +16,8 @@ define [
       @decksView = new DecksView collection: @collection
 
     render: =>
-      @$el.empty()
-      @$el.append @decksView.render().el
+      @$el.html @decksView.render().el
+      @$el.append template
       @
 
     remove: =>
@@ -25,12 +25,14 @@ define [
       super
 
     renderPlayNow: ->
-      @$el.append template
-      @
+      @$el.addClass 'playnow'
+
+    removePlayNow: ->
+      @$el.removeClass 'playnow'
 
     setSelected: (name) ->
       $('select').val name
       $('select').change() unless name
 
     startPlayer: =>
-      window.app.router.navigate "player/#{$('select').val()}", trigger: true
+      Backbone.history.navigate "/player/#{$('select').val()}", true

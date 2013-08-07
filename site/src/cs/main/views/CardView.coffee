@@ -19,14 +19,8 @@ define [
       @_flipCard = _.debounce @_flipCard, 250
 
     render: ->
-      @$el.empty()
-      @_renderText()
+      @$el.html @model.getText()
       @
-
-    _renderText: ->
-      div = $ '<div>'
-      div.addClass("text-center") if @model.get('viewing') is 'front'
-      @$el.append div.append @model.getText()
 
     enterScreenAnimation: ->
       setTimeout =>

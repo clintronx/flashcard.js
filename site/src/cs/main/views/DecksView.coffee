@@ -24,4 +24,4 @@ define [
       name = event.currentTarget.value
       return unless name
       @$el.val name
-      app?.router.navigate "deck/#{name}", trigger: true
+      Backbone.history.navigate  "/deck/#{name}", true

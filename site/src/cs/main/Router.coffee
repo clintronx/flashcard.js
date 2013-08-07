@@ -20,29 +20,31 @@ define [
       @decks = new Decks()
       @decks.fetch
         success: =>
+          @_renderNavbar()
           Backbone.history.start pushState: true
 
     index: ->
-      @_renderNavbar()
+      location.replace "/deck/#{@decks.at(0).get 'name'}"
 
     deck: (@currentDeck) ->
+      document.title = "Deck: #{@currentDeck}"
       @_prepareView()
-      @_renderNavbar()
       @navbar.renderPlayNow()
       @gridView = new GridView collection: @cards
       $('body').append @gridView.render().el
+      @navbar.setSelected @currentDeck
 
     player: (@currentDeck) ->
+      document.title = "Play: #{@currentDeck}"
       @_prepareView()
-      @_renderNavbar()
+      @navbar.removePlayNow()
       @playerView = new PlayerView collection: @cards
       $('body').append @playerView.render().el
+      @navbar.setSelected @currentDeck
 
     _prepareView: ->
-      @navbar?.remove()
       @gridView?.remove()
       @playerView?.remove()
-      $('body').empty()
       unless @cards?.name is @currentDeck
         @cards?.remove()
         @cards = new Cards [], name: @currentDeck
@@ -51,4 +53,3 @@ define [
     _renderNavbar: ->
       @navbar = new NavbarView collection: @decks
       $('body').append @navbar.render().el
-      @navbar.setSelected @currentDeck
