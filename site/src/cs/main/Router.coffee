@@ -6,8 +6,7 @@ define [
   "NavbarView"
   "GridView"
   "PlayerView"
-  "hbs!../../../templates/Scaffolding"
-], ($, Backbone, Decks, Cards, NavbarView, GridView, PlayerView, template) ->
+], ($, Backbone, Decks, Cards, NavbarView, GridView, PlayerView) ->
 
   class Router extends Backbone.Router
 
@@ -18,11 +17,9 @@ define [
       "player/:name": "player"
 
     initialize: ->
-      $('body').append template
       @decks = new Decks()
       @decks.fetch
         success: =>
-          @navbar = new NavbarView el: $('.navbar'), collection: @decks
           Backbone.history.start pushState: true
 
     index: ->
@@ -30,20 +27,28 @@ define [
 
     deck: (@currentDeck) ->
       @_prepareView()
+      @_renderNavbar()
       @navbar.renderPlayNow()
-      gridView = new GridView collection: @cards
-      $('.flashcardjs').append gridView.render().el
+      @gridView = new GridView collection: @cards
+      $('body').append @gridView.render().el
 
     player: (@currentDeck) ->
       @_prepareView()
-      playerView = new PlayerView collection: @cards
-      $('.flashcardjs').append playerView.render().el
+      @_renderNavbar()
+      @playerView = new PlayerView collection: @cards
+      $('body').append @playerView.render().el
 
     _prepareView: ->
-      @_renderNavbar()
-      $('.flashcardjs').empty()
-      @cards = new Cards [], name: @currentDeck
+      @navbar?.remove()
+      @gridView?.remove()
+      @playerView?.remove()
+      $('body').empty()
+      unless @cards?.name is @currentDeck
+        @cards?.remove()
+        @cards = new Cards [], name: @currentDeck
+        @cards.fetch reset:true
 
     _renderNavbar: ->
-      @navbar.render()
+      @navbar = new NavbarView collection: @decks
+      $('body').append @navbar.render().el
       @navbar.setSelected @currentDeck

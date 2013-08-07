@@ -6,17 +6,23 @@ define [
 
   class NavbarView extends Backbone.View
 
+    className: 'navbar'
+
     events:
       'click #playnow': 'startPlayer'
 
     initialize: ->
       @listenTo @collection, 'reset', @render
+      @decksView = new DecksView collection: @collection
 
     render: =>
       @$el.empty()
-      decksView = new DecksView collection: @collection
-      @$el.append decksView.render().el
+      @$el.append @decksView.render().el
       @
+
+    remove: =>
+      @decksView?.remove()
+      super
 
     renderPlayNow: ->
       @$el.append template

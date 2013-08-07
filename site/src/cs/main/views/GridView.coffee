@@ -6,6 +6,8 @@ define [
 
   class GridView extends Backbone.View
 
+    className: 'flashcardjs'
+
     initialize: ->
       @cardViews = []
       @_registerEventHandlers()
@@ -15,8 +17,6 @@ define [
       @listenTo @collection, 'reset', @renderDeck
 
     render: ->
-      @collection.fetch
-        reset: true
       @
 
     renderDeck: =>
@@ -31,8 +31,9 @@ define [
       @
 
     remove: ->
-      super
       $(document).off 'keydown', @handleKeydownEvents
+      cardView.remove() for cardView in @cardViews
+      super
 
     handleKeydownEvents: (event) =>
       switch event.which

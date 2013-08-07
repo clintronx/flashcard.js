@@ -1,7 +1,8 @@
 define [
   "jquery"
+  "lodash"
   "backbone"
-], ($, Backbone) ->
+], ($, _, Backbone) ->
 
   class CardView extends Backbone.View
 
@@ -13,13 +14,14 @@ define [
     events:
       "click": "toggle"
 
+    initialize: ->
+      @listenTo @model, 'change', @render
+      @_flipCard = _.debounce @_flipCard, 250
+
     render: ->
       @$el.empty()
       @_renderText()
       @
-
-    initialize: ->
-      @listenTo @model, 'change', @render
 
     _renderText: ->
       div = $ '<div>'
@@ -37,12 +39,12 @@ define [
 
     _handleCardFlip: =>
       @$el.attr 'data-view', 'z-perspective'
-      setTimeout =>
-        @model.toggle()
-        @$el.attr 'data-view', @model.get 'viewing'
-      , 250
+      @_flipCard()
+
+    _flipCard: =>
+      @model.toggle()
+      @$el.attr 'data-view', @model.get 'viewing'
 
     advance: (direction) =>
-      console.log direction
       @$el.attr 'data-advance', direction
       @render()

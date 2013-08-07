@@ -6,17 +6,18 @@ define [
 
   class PlayerView extends Backbone.View
 
+    className: 'flashcardjs'
     id: 'player'
 
     initialize: ->
-      $(document).on 'keydown', @advance
-      @collection.fetch reset: true
       @current = 0
-      @collection.on 'reset', @render
+      $(document).on 'keydown', @advance
+      @listenTo @collection, 'reset', @render
 
     remove: ->
-      super
       $(document).off 'keydown', @advance
+      @cardView?.remove()
+      super
 
     render: =>
       @$el.empty()
@@ -27,6 +28,7 @@ define [
           attributes:
             "data-view": @card.get 'viewing'
             "data-enterscreen": @enterScreen if @enterScreen
+        @cardView?.remove()
         @cardView = new CardView options
         @$el.append @cardView.render().el
         @cardView.enterScreenAnimation()
