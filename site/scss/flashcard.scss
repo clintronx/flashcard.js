@@ -54,7 +54,7 @@ body {
   text-align: center;
 }
 
-#card {
+.card {
   border: 1px solid gray;
   margin: 1em;
   padding: 1em;
@@ -122,7 +122,7 @@ body {
 
 
 
-#player > #card {
+#player > .card {
   width: $cardPlayerWidth;
   height: $cardPlayerHeight;
 

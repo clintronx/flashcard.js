@@ -9,8 +9,12 @@ define [
     className: 'flashcardjs'
     id: 'player'
 
+    events:
+      'click .card': 'handleToggle'
+
     initialize: ->
       @current = 0
+      @advance = _.throttle @advance, 500, trailing: false
       $(document).on 'keydown', @advance
       @listenTo @collection, 'reset', @render
 
@@ -61,6 +65,9 @@ define [
           @cardView.advance @advance
           window.setTimeout @_handleAdvance, 230
           return false
+
+    handleToggle: (event) =>
+      @cardView?.toggle()
 
     _handleAdvance: =>
       @$el.empty()

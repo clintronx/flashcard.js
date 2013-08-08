@@ -6,13 +6,9 @@ define [
 
   class CardView extends Backbone.View
 
-    id: 'card'
-    className: 'small'
+    className: 'card small'
     attributes:
       "data-view": "default"
-
-    events:
-      "click": "toggle"
 
     initialize: ->
       @listenTo @model, 'change', @render
