@@ -1,7 +1,6 @@
 define [
-  "lodash"
   "backbone"
-], (_, Backbone) ->
+], (Backbone) ->
 
   class Deck extends Backbone.Model
 

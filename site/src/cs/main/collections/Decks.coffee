@@ -1,11 +1,10 @@
 define [
-  "lodash"
   "backbone"
   "Deck"
-], (_, Backbone, Deck) ->
+], (Backbone, Deck) ->
 
   class Decks extends Backbone.Collection
 
-    url: -> "/flashcard/decks"
+    url: "/flashcard/decks"
 
     model: Deck

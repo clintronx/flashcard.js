@@ -11,9 +11,9 @@ define [
       viewing: 'front' #current side user is viewing: front|back
 
     toggle: =>
-      switch @.get 'viewing'
-        when 'front' then @.set viewing: 'back'
-        when 'back' then @.set viewing: 'front'
+      switch @get 'viewing'
+        when 'front' then @set viewing: 'back'
+        when 'back' then @set viewing: 'front'
 
     getText: =>
-      return @.get @.get('viewing')
+      return @get @get('viewing')
