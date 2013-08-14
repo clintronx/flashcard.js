@@ -31,8 +31,8 @@ define [
       @$el.removeClass 'playnow'
 
     setSelected: (name) ->
-      $('select').val name
-      $('select').change() unless name
+      @$('select').val name
+      @$('select').change() unless name
 
     startPlayer: =>
       Backbone.history.navigate "/player/#{$('select').val()}", true
