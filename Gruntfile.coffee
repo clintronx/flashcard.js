@@ -45,10 +45,10 @@ module.exports = (grunt) ->
     watch:
       coffee:
         files: COFFEE
-        tasks: ['default']
+        tasks: ['coffeelint', 'coffee', 'requirejs']
       sass:
         files: 'site/scss/**/*.scss'
-        tasks: ['default']
+        tasks: ['sass']
       # karma:
       #   files: ['site/src/js/main/**/*.js', 'site/src/js/test/spec/**/*.js']
       #   tasks: ['karma:unit:run']
