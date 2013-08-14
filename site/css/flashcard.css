@@ -62,34 +62,22 @@ body {
   text-align: left;
 }
 .card[data-view='z-perspective'] {
+  -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
   -o-transform: scaleX(0);
-  -webkit-transform: scaleX(0);
   transform: scaleX(0);
   filter: flipH;
 }
-.card[data-advance='left'] {
+.card[data-advance='left'], .card[data-enterScreen='left'] {
+  -webkit-transform: translateX(-1600px);
   -moz-transform: translateX(-1600px);
   -o-transform: translateX(-1600px);
-  -webkit-transform: translateX(-1600px);
   transform: translateX(-1600px);
 }
-.card[data-advance='right'] {
+.card[data-advance='right'], .card[data-enterScreen='right'] {
+  -webkit-transform: translateX(1600px);
   -moz-transform: translateX(1600px);
   -o-transform: translateX(1600px);
-  -webkit-transform: translateX(1600px);
-  transform: translateX(1600px);
-}
-.card[data-enterScreen='left'] {
-  -moz-transform: translateX(-1600px);
-  -o-transform: translateX(-1600px);
-  -webkit-transform: translateX(-1600px);
-  transform: translateX(-1600px);
-}
-.card[data-enterScreen='right'] {
-  -moz-transform: translateX(1600px);
-  -o-transform: translateX(1600px);
-  -webkit-transform: translateX(1600px);
   transform: translateX(1600px);
 }
 

@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 $height: 200px;
 $cardPlayerWidth: 800px;
 $cardPlayerHeight: 600px;
@@ -61,11 +63,7 @@ body {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  -o-border-radius: 1em;
-  border-radius: 1em;
+  @include border-radius(1em);
 
   -webkit-transition:width .25s, height .25s, background-color .25s, -webkit-transform .25s;
   -moz-transition:width .25s, height .25s, background-color .25s, -moz-transform .25s;
@@ -82,41 +80,20 @@ body {
   }
 
   &[data-view = 'z-perspective'] {
-    -moz-transform: scaleX(0);
-    -o-transform: scaleX(0);
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
+    @include transform(scaleX(0));
 
     //IE
     filter: flipH;
   }
 
-  &[data-advance = 'left'] {
-    -moz-transform: translateX($cardPlayerWidth * -2);
-    -o-transform: translateX($cardPlayerWidth * -2);
-    -webkit-transform: translateX($cardPlayerWidth * -2);
-    transform: translateX($cardPlayerWidth * -2);
-  }
-
-  &[data-advance = 'right'] {
-    -moz-transform: translateX($cardPlayerWidth * 2);
-    -o-transform: translateX($cardPlayerWidth * 2);
-    -webkit-transform: translateX($cardPlayerWidth * 2);
-    transform: translateX($cardPlayerWidth * 2);
-  }
-
+  &[data-advance = 'left'],
   &[data-enterScreen = 'left'] {
-    -moz-transform: translateX($cardPlayerWidth * -2);
-    -o-transform: translateX($cardPlayerWidth * -2);
-    -webkit-transform: translateX($cardPlayerWidth * -2);
-    transform: translateX($cardPlayerWidth * -2);
+    @include transform(translateX($cardPlayerWidth * -2));
   }
 
+  &[data-advance = 'right'],
   &[data-enterScreen = 'right'] {
-    -moz-transform: translateX($cardPlayerWidth * 2);
-    -o-transform: translateX($cardPlayerWidth * 2);
-    -webkit-transform: translateX($cardPlayerWidth * 2);
-    transform: translateX($cardPlayerWidth * 2);
+    @include transform(translateX($cardPlayerWidth * 2));
   }
 }
 

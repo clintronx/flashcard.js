@@ -1,0 +1,13 @@
+@mixin border-radius($radii) {
+  -webkit-border-radius: $radii;
+     -moz-border-radius: $radii;
+       -o-border-radius: $radii;
+          border-radius: $radii;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+     -moz-transform: $property;
+       -o-transform: $property;
+          transform: $property;
+}
