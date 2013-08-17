@@ -52,12 +52,6 @@ app.get '/flashcard/decks', (request, response) ->
 
     response.send deckProperties
 
-app.get '/deck/*', (request, response) ->
-  response.sendfile(__dirname + '/site/index.html');
-
-app.get '/player/*', (request, response) ->
-  response.sendfile(__dirname + '/site/index.html');
-
 #get all cards from the deck
 app.get '/flashcard/deck/:name', (request, response) ->
   lib = require "#{LIB_DIR}/#{request.params.name}"
@@ -67,3 +61,9 @@ app.get '/flashcard/deck/:name', (request, response) ->
 app.get '/flashcard/deck/:name/:id', (request, response) ->
   lib = require "#{LIB_DIR}/#{request.params.name}"
   response.send lib[request.params.id]
+
+handleIndexRequest = (request, response) ->
+  response.sendfile __dirname + '/site/index.html'
+
+app.get '/deck/*'   , handleIndexRequest
+app.get '/player/*' , handleIndexRequest
