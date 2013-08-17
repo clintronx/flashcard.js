@@ -33,23 +33,22 @@ app.listen port, () ->
 # Routes
 LIB_DIR = "./site/libraries"
 
+isDeckFilename = (filename) ->
+  path.extname(filename) is '.json'
+
 #get all decks properties
 #returns json array of deck property models
 #[{name: "filename", size: "number of cards in the deck"},...]
 app.get '/flashcard/decks', (request, response) ->
   fs.readdir LIB_DIR, (err, files) ->
 
-    deckProperties = []
-    for filename in files
-      try
-        contents = JSON.parse fs.readFileSync("#{LIB_DIR}/#{filename}")
-      catch e
-        console.log "error encountered processing file #{filename} - ensure file is properly formatted JSON - skipping file"
-        continue
+    deckFilenames = files.filter isDeckFilename
 
-      deckProperties.push
-        name: filename
-        size: if contents.length then contents.length else 1
+    deckProperties = for filename in deckFilenames
+      cards = JSON.parse fs.readFileSync "#{LIB_DIR}/#{filename}"
+
+      name: filename
+      size: cards.length
 
     response.send deckProperties
 
