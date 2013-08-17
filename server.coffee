@@ -9,15 +9,6 @@ app = express()
 
 # Configure server
 app.configure () ->
-  #parses request body and populates request.body
-  app.use express.bodyParser()
-
-  #checks request.body for HTTP method overrides
-  app.use express.methodOverride()
-
-  #perform route lookup based on url and HTTP method
-  app.use app.router
-
   #Where to serve static content
   app.use express.static path.join application_root, 'site'
 
