@@ -53,15 +53,15 @@ define [
           return false
         when 37 #left
           @_decrementCard()
-          @advance = 'left'
-          @enterScreen = 'right'
+          @advance = 'right'
+          @enterScreen = 'left'
           @cardView.advance @advance
           window.setTimeout @_handleAdvance, 230
           return false
         when 39 #right
           @_incrementCard()
-          @advance = 'right'
-          @enterScreen = 'left'
+          @advance = 'left'
+          @enterScreen = 'right'
           @cardView.advance @advance
           window.setTimeout @_handleAdvance, 230
           return false
