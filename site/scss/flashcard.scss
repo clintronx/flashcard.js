@@ -1,22 +1,8 @@
+@import 'variables.scss';
 @import 'mixins.scss';
 
-$height: 200px;
-$cardPlayerWidth: 800px;
-$cardPlayerHeight: 600px;
-$ratio: 0.6;
-$front: white;
-$back:  darken(white, 4%);
-$playerFrontStart: #bbd;
-$playerFrontStop: #fff;
-$playerBackStart: #fff;
-$playerBackStop: #bbd;
-
 body {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  top: 0;
+  @include snapbox;
   margin: 1em;
   font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
@@ -26,7 +12,7 @@ body {
   top: 0;
   left: 0;
   margin: 1em auto;
-  hight: $height;
+  height: $height;
   width: 100%;
   text-align: center;
   z-index: 1000;
@@ -57,18 +43,14 @@ body {
 }
 
 .card {
+  @include border-radius(1em);
+  @include transition(.25s);
   border: 1px solid gray;
   margin: 1em;
   padding: 1em;
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  @include border-radius(1em);
-
-  -webkit-transition:width .25s, height .25s, background-color .25s, -webkit-transform .25s;
-  -moz-transition:width .25s, height .25s, background-color .25s, -moz-transform .25s;
-  -o-transition:width .25s, height .25s, background-color .25s, -o-transform .25s;
-  transition:width .25s, height .25s, background-color .25s, transform .25s;
 
   &[data-view = 'front'] {
     background-color: $front;
@@ -97,25 +79,19 @@ body {
   }
 }
 
-
-
 #player > .card {
   width: $cardPlayerWidth;
   height: $cardPlayerHeight;
+  font-size: $cardPlayerFontSize;
 
   &[data-view = 'front'] {
-    background: -webkit-gradient(linear, left bottom, left top, from($playerFrontStart), to($playerFrontStop));
-    background: -moz-linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
-    background: linear-gradient(bottom, $playerFrontStart, $playerFrontStop);
+    @include background($playerFrontStart, $playerFrontStop);
   }
 
   &[data-view = 'back'] {
-    background: -webkit-gradient(linear, left bottom, left top, from($playerBackStart), to($playerBackStop));
-    background: -moz-linear-gradient(bottom, $playerBackStart, $playerBackStop);
-    background: linear-gradient(bottom, $playerBackStart, $playerBackStop);
+    @include background($playerBackStart, $playerBackStop);
   }
 }
-
 
 .small {
   height: $height;

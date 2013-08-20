@@ -13,7 +13,7 @@ body {
   top: 0;
   left: 0;
   margin: 1em auto;
-  hight: 200px;
+  height: 200px;
   width: 100%;
   text-align: center;
   z-index: 1000;
@@ -39,20 +39,20 @@ body {
 }
 
 .card {
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  border-radius: 1em;
+  -webkit-transition: width 0.25s, height 0.25s, background-color 0.25s, -webkit-transform 0.25s;
+  -moz-transition: width 0.25s, height 0.25s, background-color 0.25s, -moz-transform 0.25s;
+  -o-transition: width 0.25s, height 0.25s, background-color 0.25s, -o-transform 0.25s;
+  transition: width 0.25s, height 0.25s, background-color 0.25s, transform 0.25s;
   border: 1px solid gray;
   margin: 1em;
   padding: 1em;
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  -o-border-radius: 1em;
-  border-radius: 1em;
-  -webkit-transition: width .25s, height .25s, background-color .25s, -webkit-transform .25s;
-  -moz-transition: width .25s, height .25s, background-color .25s, -moz-transform .25s;
-  -o-transition: width .25s, height .25s, background-color .25s, -o-transform .25s;
-  transition: width .25s, height .25s, background-color .25s, transform .25s;
 }
 .card[data-view='front'] {
   background-color: white;
@@ -84,14 +84,15 @@ body {
 #player > .card {
   width: 800px;
   height: 600px;
+  font-size: 22px;
 }
 #player > .card[data-view='front'] {
-  background: -webkit-gradient(linear, left bottom, left top, from(#bbbbdd), to(white));
+  background: -webkit-linear-gradient(bottom, #bbbbdd, white);
   background: -moz-linear-gradient(bottom, #bbbbdd, white);
   background: linear-gradient(bottom, #bbbbdd, white);
 }
 #player > .card[data-view='back'] {
-  background: -webkit-gradient(linear, left bottom, left top, from(white), to(#bbbbdd));
+  background: -webkit-linear-gradient(bottom, white, #bbbbdd);
   background: -moz-linear-gradient(bottom, white, #bbbbdd);
   background: linear-gradient(bottom, white, #bbbbdd);
 }

@@ -11,3 +11,24 @@
        -o-transform: $property;
           transform: $property;
 }
+
+@mixin transition($durration) {
+  -webkit-transition: width $durration, height $durration, background-color $durration, -webkit-transform $durration;
+     -moz-transition: width $durration, height $durration, background-color $durration,    -moz-transform $durration;
+       -o-transition: width $durration, height $durration, background-color $durration,      -o-transform $durration;
+          transition: width $durration, height $durration, background-color $durration,         transform $durration;
+}
+
+@mixin background($startColor, $stopColor) {
+  background: -webkit-linear-gradient(bottom, $startColor, $stopColor);
+  background:    -moz-linear-gradient(bottom, $startColor, $stopColor);
+  background:         linear-gradient(bottom, $startColor, $stopColor);
+}
+
+@mixin snapbox {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0;
+}
